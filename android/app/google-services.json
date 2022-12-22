@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "54739268490",
+    "project_id": "diet-pdf",
+    "storage_bucket": "diet-pdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54739268490:android:547b46e23f115119e60e73",
+        "android_client_info": {
+          "package_name": "com.example.diet_pdf_creator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54739268490-rsjs2sgppto7kps4rj8je8jc4ldilhpo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diet_pdf_creator",
+            "certificate_hash": "e6d0e557992359d16d2937e43c6264a31127351a"
+          }
+        },
+        {
+          "client_id": "54739268490-9rfs4k42v5cdvav6smer0bvuk93akqkr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQou3h79AAzJNpMG-ChsFmbGqkkp_YKTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54739268490-9rfs4k42v5cdvav6smer0bvuk93akqkr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
