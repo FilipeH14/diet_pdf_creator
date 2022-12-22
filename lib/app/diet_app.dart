@@ -13,7 +13,6 @@ class DietApp extends StatelessWidget {
       title: DietUiTheme.title,
       debugShowCheckedModeBanner: false,
       theme: DietUiTheme.theme,
-      home: Container(),
       initialRoute: RoutesName.splashRoute,
       getPages: RoutersPages.routers,
     );

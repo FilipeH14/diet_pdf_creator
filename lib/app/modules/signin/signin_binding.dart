@@ -5,7 +5,7 @@ class SigninBinding implements Bindings {
 
   @override
   void dependencies() {
-    Get.lazyPut(() => SigninContorller());
+    Get.put(SigninContorller());
   }
   
 }
