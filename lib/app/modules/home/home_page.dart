@@ -1,8 +1,9 @@
+import 'package:diet_pdf_creator/app/modules/home/home_controller.dart';
 import 'package:diet_pdf_creator/app/shared/ui/diet_ui_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -25,26 +26,17 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          'Olá Débora!!',
-                          style: TextStyle(
+                        Text(
+                          'Olá ${controller.user.displayName}!!',
+                          style: const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: DietUiColors.secondary,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(5),
-                            child: Icon(
-                              Icons.person_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(controller.user.photoURL.toString()),
+                          radius: 17,
+                        ),
                       ],
                     ),
                     Image.asset('assets/images/bell_peppers.png'),
