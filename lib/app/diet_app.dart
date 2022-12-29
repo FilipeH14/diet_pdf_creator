@@ -1,5 +1,6 @@
+import 'package:diet_pdf_creator/app/routes/routers_diet_generator.dart';
 import 'package:diet_pdf_creator/app/routes/routers_pages.dart';
-import 'package:diet_pdf_creator/app/routes/routes_name.dart';
+import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/bindings/global_bindings.dart';
 import 'package:diet_pdf_creator/app/shared/ui/diet_ui_theme.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,11 @@ class DietApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialBinding: GlobalBindings(),
       theme: DietUiTheme.theme,
-      initialRoute: RoutesName.splashRoute,
-      getPages: RoutersPages.routers,
+      initialRoute: RoutesApplication.splashRoute,
+      getPages: [
+        ...RoutersPages.routers,
+        ...RoutersDietGenerator.routers,
+      ],
     );
   }
 }
