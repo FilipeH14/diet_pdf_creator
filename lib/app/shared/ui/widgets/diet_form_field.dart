@@ -2,7 +2,12 @@ import 'package:diet_pdf_creator/app/shared/ui/diet_ui_colors.dart';
 import 'package:flutter/material.dart';
 
 class DietFormField extends StatefulWidget {
-  const DietFormField({Key? key}) : super(key: key);
+  final String placeholder;
+
+  const DietFormField({
+    required this.placeholder,
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<DietFormField> createState() => _DietFormFieldState();
@@ -39,7 +44,7 @@ class _DietFormFieldState extends State<DietFormField> {
           ),
           isDense: true,
           border: InputBorder.none,
-          labelText: 'Placeholder',
+          labelText: widget.placeholder,
           labelStyle: TextStyle(
             height: 0.5,
             color: _borderColor,
