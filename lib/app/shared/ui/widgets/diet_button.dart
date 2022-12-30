@@ -13,8 +13,8 @@ class DietButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      onPressed: action,
       child: Text(text),
-      onPressed: () => action,
     );
   }
 }
