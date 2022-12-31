@@ -37,11 +37,12 @@ class BreakfastPage extends GetView<BreakfastController> {
               DietButton(
                 text: 'gerar pdf',
                 action: () {
-                  final option = controller.optionEC.text;
-                  final amount = controller.amountEC.text;
-                  final weight = controller.weightEC.text;
+                  // final option = controller.optionEC.text;
+                  // final amount = controller.amountEC.text;
+                  // final weight = controller.weightEC.text;
 
-                  controller.sendToPdf(option, amount, weight);
+                  // controller.sendToPdf(option, amount, weight);
+                  controller.goToNextPage();
 
                 },
               ),

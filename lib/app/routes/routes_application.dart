@@ -4,4 +4,5 @@ class RoutesApplication {
   static const String homeRoute = '/home';
 
   static const String breakfast = '/breakfast';
+  static const String endDocument = '/endDocument';
 }

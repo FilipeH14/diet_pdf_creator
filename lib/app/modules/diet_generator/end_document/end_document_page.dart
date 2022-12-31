@@ -9,7 +9,9 @@ class EndDocumentPage extends GetView<EndDocumentController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('EndDocumentPage')),
-      body: Container(),
+      body: const Center(
+        child: Text('olá'),
+      ),
     );
   }
 }
