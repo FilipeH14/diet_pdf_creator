@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:diet_pdf_creator/app/modules/pdf_screen/pdf_screen.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class BreakfastController extends GetxController {
   RxString amountText = ''.obs;
   RxString weightText = ''.obs;
 
-  RxMap<dynamic, dynamic> dietTest = {}.obs;
+  // Meal dietTest = {}.obs as Meal;
 
   @override
   void onInit() {
@@ -29,13 +30,13 @@ class BreakfastController extends GetxController {
   }
 
   void goToNextPage() {
-    dietTest = {
-      'option': optionText.value,
-      'amount': amountText.value,
-      'weight': weightText.value,
-    } as RxMap<String, String>;
+    var dietTest = Meal(
+      option: optionText.value,
+      amount: amountText.value,
+      grammage: weightText.value,
+    );
 
-    Get.toNamed(RoutesApplication.endDocument);
+    Get.toNamed(RoutesApplication.endDocument, arguments: dietTest);
   }
 
   // Future<void> sendToPdf(option, amount, weight) async {
