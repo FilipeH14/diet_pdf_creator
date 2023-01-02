@@ -22,21 +22,24 @@ class BreakfastController extends GetxController {
 
   @override
   void onInit() {
-    optionText.value = optionEC.text;
-    amountText.value = amountEC.text;
-    weightText.value = weightEC.text;
+    // optionText.value = optionEC.text;
+    // amountText.value = amountEC.text;
+    // weightText.value = weightEC.text;
 
     super.onInit();
   }
 
   void goToNextPage() {
     var dietTest = Meal(
-      option: optionText.value,
-      amount: amountText.value,
-      grammage: weightText.value,
+      option: optionEC.text,
+      amount: amountEC.text,
+      grammage: weightEC.text,
     );
 
-    Get.toNamed(RoutesApplication.endDocument, arguments: dietTest);
+    Get.toNamed(
+      RoutesApplication.endDocument,
+      arguments: dietTest,
+    );
   }
 
   // Future<void> sendToPdf(option, amount, weight) async {

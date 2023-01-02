@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class BreakfastBinding implements Bindings {
   @override
   void dependencies() {
-    Get.put(BreakfastController());
+    Get.put(BreakfastController(), permanent: true);
   }
   
 }

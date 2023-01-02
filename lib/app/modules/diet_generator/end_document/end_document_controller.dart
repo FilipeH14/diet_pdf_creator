@@ -5,13 +5,17 @@ import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfas
 import 'package:get/get.dart';
 
 class EndDocumentController extends GetxController {
-
-  late Meal meal;
+  late final Meal meal;
 
   @override
   void onInit() {
-    
-    final breakfastData = Get.find<BreakfastController>().addListener(() { });
+    meal = Get.arguments as Meal;
+
+    // final breakfastController = Get.find<BreakfastController>();
+
+    final data = meal.toString();
+
+    log(data);
 
     super.onInit();
   }
