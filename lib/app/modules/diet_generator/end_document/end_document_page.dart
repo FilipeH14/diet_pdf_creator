@@ -10,7 +10,7 @@ class EndDocumentPage extends GetView<EndDocumentController> {
     return Scaffold(
       appBar: AppBar(title: const Text('EndDocumentPage')),
       body: Center(
-        child: Text(controller.meal.option.toString()),
+        child: Text(controller.meal[1].option.toString()),
       ),
     );
   }

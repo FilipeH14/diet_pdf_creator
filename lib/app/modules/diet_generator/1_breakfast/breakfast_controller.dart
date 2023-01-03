@@ -12,33 +12,18 @@ import 'package:path_provider/path_provider.dart';
 class BreakfastController extends GetxController {
   final optionEC = TextEditingController();
   final amountEC = TextEditingController();
-  final weightEC = TextEditingController();
-
-  RxString optionText = ''.obs;
-  RxString amountText = ''.obs;
-  RxString weightText = ''.obs;
-
-  // Meal dietTest = {}.obs as Meal;
-
-  @override
-  void onInit() {
-    // optionText.value = optionEC.text;
-    // amountText.value = amountEC.text;
-    // weightText.value = weightEC.text;
-
-    super.onInit();
-  }
+  final grammageEC = TextEditingController();
 
   void goToNextPage() {
-    var dietTest = Meal(
+    final breakfastDiet = Meal(
       option: optionEC.text,
       amount: amountEC.text,
-      grammage: weightEC.text,
+      grammage: grammageEC.text,
     );
 
     Get.toNamed(
-      RoutesApplication.endDocument,
-      arguments: dietTest,
+      RoutesApplication.brunch,
+      arguments: breakfastDiet,
     );
   }
 
