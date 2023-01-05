@@ -15,15 +15,15 @@ class BreakfastController extends GetxController {
   final grammageEC = TextEditingController();
 
   void goToNextPage() {
-    final breakfastDiet = Meal(
-      option: optionEC.text,
-      amount: amountEC.text,
-      grammage: grammageEC.text,
-    );
+    // final breakfastDiet = Meal(
+    //   option: optionEC.text,
+    //   amount: amountEC.text,
+    //   grammage: grammageEC.text,
+    // );
 
     Get.toNamed(
       RoutesApplication.brunch,
-      arguments: breakfastDiet,
+      // arguments: breakfastDiet,
     );
   }
 

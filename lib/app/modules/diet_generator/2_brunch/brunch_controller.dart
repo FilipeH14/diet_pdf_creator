@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfast_controller.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -11,35 +12,41 @@ class BrunchController extends GetxController {
   final grammageEC = TextEditingController();
 
   late final Meal breakfastMeal;
+  String breakfast = '';
 
   @override
   void onInit() {
-    breakfastMeal = Get.arguments as Meal;
-    final data = breakfastMeal.toString();
+    // breakfastMeal = Get.arguments as Meal;
+    // final data = breakfastMeal.toString();
 
-    log(data);
+    // log(data);
+
+    final getBreakfast = Get.find<BreakfastController>();
+    breakfast = getBreakfast.optionEC.text;
+
+    log(breakfast);
 
     super.onInit();
   }
 
   void goToNextPage() {
-    final breakfastDiet = Meal(
-      option: breakfastMeal.option.toString(),
-      amount: breakfastMeal.amount.toString(),
-      grammage: breakfastMeal.grammage.toString(),
-    );
+    // final breakfastDiet = Meal(
+    //   option: breakfastMeal.option.toString(),
+    //   amount: breakfastMeal.amount.toString(),
+    //   grammage: breakfastMeal.grammage.toString(),
+    // );
 
-    final brunchDiet = Meal(
-      option: optionEC.text,
-      amount: amountEC.text,
-      grammage: grammageEC.text,
-    );
+    // final brunchDiet = Meal(
+    //   option: optionEC.text,
+    //   amount: amountEC.text,
+    //   grammage: grammageEC.text,
+    // );
 
-    List<Meal> brunch = [breakfastDiet, brunchDiet];
+    // List<Meal> brunch = [breakfastDiet, brunchDiet];
 
-    Get.toNamed(
-      RoutesApplication.endDocument,
-      arguments: brunch,
-    );
+    // Get.toNamed(
+    //   RoutesApplication.endDocument,
+    //   arguments: brunch,
+    // );
   }
 }

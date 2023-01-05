@@ -30,6 +30,12 @@ class BrunchPage extends GetView<BrunchController> {
                 placeholder: 'peso',
                 controller: controller.grammageEC,
               ),
+              Center(
+                child: Text(
+                  controller.breakfast,
+                  style: const TextStyle(color: Colors.red),
+                ),
+              ),
               DietButton(
                 text: 'gerar pdf',
                 action: () => controller.goToNextPage(),
