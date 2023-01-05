@@ -16,17 +16,12 @@ class BreakfastController extends GetxController {
 
   late final Meal breakfastDiet;
 
-  @override
-  void onInit() {
+  void goToNextPage() {
     breakfastDiet = Meal(
       option: optionEC.text,
       amount: amountEC.text,
       grammage: grammageEC.text,
     );
-    super.onInit();
-  }
-
-  void goToNextPage() {
 
     Get.toNamed(
       RoutesApplication.brunch,

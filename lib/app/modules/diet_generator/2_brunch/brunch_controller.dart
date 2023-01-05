@@ -13,6 +13,7 @@ class BrunchController extends GetxController {
 
   final getBreakfast = Get.find<BreakfastController>();
   late final Meal breakfastDiet;
+  late final Meal brunchDiet;
 
   @override
   void onInit() {
@@ -26,5 +27,14 @@ class BrunchController extends GetxController {
     super.onInit();
   }
 
-  void goToNextPage() => Get.toNamed(RoutesApplication.endDocument);
+  void goToNextPage() {
+
+    brunchDiet = Meal(
+      option: optionEC.text,
+      amount: amountEC.text,
+      grammage: grammageEC.text,
+    );
+
+    Get.toNamed(RoutesApplication.endDocument);
+  }
 }
