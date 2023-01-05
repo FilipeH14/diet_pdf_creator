@@ -11,42 +11,20 @@ class BrunchController extends GetxController {
   final amountEC = TextEditingController();
   final grammageEC = TextEditingController();
 
-  late final Meal breakfastMeal;
-  String breakfast = '';
+  final getBreakfast = Get.find<BreakfastController>();
+  late final Meal breakfastDiet;
 
   @override
   void onInit() {
-    // breakfastMeal = Get.arguments as Meal;
-    // final data = breakfastMeal.toString();
 
-    // log(data);
-
-    final getBreakfast = Get.find<BreakfastController>();
-    breakfast = getBreakfast.optionEC.text;
-
-    log(breakfast);
+    breakfastDiet = Meal(
+      option: getBreakfast.breakfastDiet.option,
+      amount: getBreakfast.breakfastDiet.amount,
+      grammage: getBreakfast.breakfastDiet.grammage,
+    );
 
     super.onInit();
   }
 
-  void goToNextPage() {
-    // final breakfastDiet = Meal(
-    //   option: breakfastMeal.option.toString(),
-    //   amount: breakfastMeal.amount.toString(),
-    //   grammage: breakfastMeal.grammage.toString(),
-    // );
-
-    // final brunchDiet = Meal(
-    //   option: optionEC.text,
-    //   amount: amountEC.text,
-    //   grammage: grammageEC.text,
-    // );
-
-    // List<Meal> brunch = [breakfastDiet, brunchDiet];
-
-    // Get.toNamed(
-    //   RoutesApplication.endDocument,
-    //   arguments: brunch,
-    // );
-  }
+  void goToNextPage() => Get.toNamed(RoutesApplication.endDocument);
 }

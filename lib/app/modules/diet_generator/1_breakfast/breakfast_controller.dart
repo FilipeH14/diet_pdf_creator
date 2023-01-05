@@ -14,12 +14,19 @@ class BreakfastController extends GetxController {
   final amountEC = TextEditingController();
   final grammageEC = TextEditingController();
 
+  late final Meal breakfastDiet;
+
+  @override
+  void onInit() {
+    breakfastDiet = Meal(
+      option: optionEC.text,
+      amount: amountEC.text,
+      grammage: grammageEC.text,
+    );
+    super.onInit();
+  }
+
   void goToNextPage() {
-    // final breakfastDiet = Meal(
-    //   option: optionEC.text,
-    //   amount: amountEC.text,
-    //   grammage: grammageEC.text,
-    // );
 
     Get.toNamed(
       RoutesApplication.brunch,

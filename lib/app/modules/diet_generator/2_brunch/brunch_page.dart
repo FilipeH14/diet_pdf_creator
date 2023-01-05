@@ -32,7 +32,7 @@ class BrunchPage extends GetView<BrunchController> {
               ),
               Center(
                 child: Text(
-                  controller.breakfast,
+                  controller.breakfastDiet.option.toString(),
                   style: const TextStyle(color: Colors.red),
                 ),
               ),
