@@ -8,7 +8,14 @@ class BreakfastController extends GetxController {
   final amountEC = TextEditingController();
   final grammageEC = TextEditingController();
 
-  late final Meal breakfastDiet;
+  final listOptionalBreakfast = <Meal>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  late Meal breakfastDiet;
 
   void goToNextPage() {
     breakfastDiet = Meal(
@@ -17,9 +24,12 @@ class BreakfastController extends GetxController {
       grammage: grammageEC.text,
     );
 
-    Get.toNamed(
-      RoutesApplication.brunch,
-      // arguments: breakfastDiet,
-    );
+    listOptionalBreakfast.add(breakfastDiet);
+
+    optionEC.text = '';
+    amountEC.text = '';
+    grammageEC.text = '';
+
+    // Get.toNamed(RoutesApplication.brunch);
   }
 }

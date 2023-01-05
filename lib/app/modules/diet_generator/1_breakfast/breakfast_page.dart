@@ -9,8 +9,6 @@ import 'package:get/get.dart';
 class BreakfastPage extends GetView<BreakfastController> {
   final _formKey = GlobalKey<FormState>();
 
-  
-
   BreakfastPage({Key? key}) : super(key: key);
 
   @override
@@ -37,6 +35,22 @@ class BreakfastPage extends GetView<BreakfastController> {
               DietButton(
                 text: 'gerar pdf',
                 action: () => controller.goToNextPage(),
+              ),
+              SingleChildScrollView(
+                child: Obx(
+                  () => Row(
+                      children: controller.listOptionalBreakfast
+                          .map(
+                            (element) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 2,
+                                vertical: 10,
+                              ),
+                              child: Text(element.option.toString()),
+                            ),
+                          )
+                          .toList()),
+                ),
               ),
             ],
           ),
