@@ -1,21 +1,76 @@
-import 'dart:developer';
+import 'dart:io';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfast_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/2_brunch/brunch_controller.dart';
+import 'package:diet_pdf_creator/app/modules/pdf_screen/pdf_screen.dart';
 import 'package:get/get.dart';
 
+import 'package:pdf/widgets.dart' as pdfLib;
+import 'package:path_provider/path_provider.dart';
+
 class EndDocumentController extends GetxController {
-  late final List<Meal> meal;
+  final getBreakfast = Get.find<BreakfastController>();
+  late final Meal breakfastDiet;
+
+  final getBrunch = Get.find<BrunchController>();
+  late final Meal brunchDiet;
 
   @override
   void onInit() {
-    meal = Get.arguments as List<Meal>;
+    breakfastDiet = Meal(
+      option: getBreakfast.breakfastDiet.option,
+      amount: getBreakfast.breakfastDiet.amount,
+      grammage: getBreakfast.breakfastDiet.grammage,
+    );
 
-    
-    final data = meal.toString();
-
-    log(data);
+    brunchDiet = Meal(
+      option: getBrunch.brunchDiet.option,
+      amount: getBrunch.brunchDiet.amount,
+      grammage: getBrunch.brunchDiet.grammage,
+    );
 
     super.onInit();
+  }
+
+  Future<void> generatePdf(Meal breakfastDiet, Meal brunchDiet) async {
+    final pdfLib.Document pdf = pdfLib.Document(deflate: zlib.encode);
+
+    pdf.addPage(pdfLib.MultiPage(
+      build: (context) => [
+        pdfLib.Text('Desjejum'),
+        pdfLib.Table.fromTextArray(
+          data: <List<String>>[
+            <String>['option', 'amount', 'grammage'],
+            [
+              breakfastDiet.option.toString(),
+              breakfastDiet.amount.toString(),
+              breakfastDiet.grammage.toString(),
+            ],
+          ],
+        ),
+        pdfLib.SizedBox(height: 20),
+        pdfLib.Text('Colação'),
+        pdfLib.Table.fromTextArray(
+          data: <List<String>>[
+            <String>['option', 'amount', 'grammage'],
+            [
+              brunchDiet.option.toString(),
+              brunchDiet.amount.toString(),
+              brunchDiet.grammage.toString(),
+            ],
+          ],
+        ),
+      ],
+    ));
+
+    final String dir = (await getApplicationDocumentsDirectory()).path;
+
+    final String path = '$dir/pdfExemplo.pdf';
+
+    final File file = File(path);
+    file.writeAsBytesSync(List.from(await pdf.save()));
+
+    Get.to(PdfScreen(pathPdf: path));
   }
 }
