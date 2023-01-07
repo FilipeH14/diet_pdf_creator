@@ -10,11 +10,6 @@ class BreakfastController extends GetxController {
 
   final listOptionalBreakfast = <Meal>[].obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
   late Meal breakfastDiet;
 
   void goToNextPage() {

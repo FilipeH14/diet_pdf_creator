@@ -32,7 +32,8 @@ class _DietFormFieldState extends State<DietFormField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(8),
+      // margin: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 2),
       decoration: BoxDecoration(
         border: Border.all(color: _borderColor),
         borderRadius: BorderRadius.circular(10),
