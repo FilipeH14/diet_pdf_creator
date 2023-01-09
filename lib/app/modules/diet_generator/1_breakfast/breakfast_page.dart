@@ -27,9 +27,55 @@ class BreakfastPage extends GetView<BreakfastController> {
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(0),
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(8),
-                    child: Text('Conteúdo aqui!!'),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: SingleChildScrollView(
+                      child: Obx(
+                        () => Column(
+                          children: controller.mealsOptional
+                              .map(
+                                (element) => Row(
+                                  children: controller.listOptionalBreakfast
+                                      .map(
+                                        (element) => Column(
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                horizontal: 5,
+                                                vertical: 10,
+                                              ),
+                                              child: Text(
+                                                  element.option.toString()),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                horizontal: 5,
+                                                vertical: 10,
+                                              ),
+                                              child: Text(
+                                                  element.amount.toString()),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                horizontal: 5,
+                                                vertical: 10,
+                                              ),
+                                              child: Text(
+                                                  element.grammage.toString()),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -58,14 +104,14 @@ class BreakfastPage extends GetView<BreakfastController> {
                             width: Get.width * 0.3,
                             child: DietButton(
                               text: 'ou',
-                              action: () {},
+                              action: () => controller.optionalBreakfast(),
                             ),
                           ),
                           SizedBox(
                             width: Get.width * 0.3,
                             child: DietButton(
                               text: '+',
-                              action: () {},
+                              action: () => controller.addBreakfast(),
                             ),
                           ),
                         ],
@@ -77,22 +123,6 @@ class BreakfastPage extends GetView<BreakfastController> {
                           action: () => controller.goToNextPage(),
                         ),
                       ),
-                      // SingleChildScrollView(
-                      //   child: Obx(
-                      //     () => Row(
-                      //         children: controller.listOptionalBreakfast
-                      //             .map(
-                      //               (element) => Padding(
-                      //                 padding: const EdgeInsets.symmetric(
-                      //                   horizontal: 5,
-                      //                   vertical: 10,
-                      //                 ),
-                      //                 child: Text(element.option.toString()),
-                      //               ),
-                      //             )
-                      //             .toList()),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),

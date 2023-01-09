@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +11,13 @@ class BreakfastController extends GetxController {
   final grammageEC = TextEditingController();
 
   final listOptionalBreakfast = <Meal>[].obs;
+  final mealsOptional = <List<Meal>>[].obs;
+
+  int indexBreakfast = 0;
 
   late Meal breakfastDiet;
 
-  void goToNextPage() {
+  void optionalBreakfast() {
     breakfastDiet = Meal(
       option: optionEC.text,
       amount: amountEC.text,
@@ -24,7 +29,22 @@ class BreakfastController extends GetxController {
     optionEC.text = '';
     amountEC.text = '';
     grammageEC.text = '';
+  }
 
+  void addBreakfast() {
+
+    log('passou aqui!!!');
+
+    mealsOptional[indexBreakfast] = listOptionalBreakfast;
+
+    optionEC.text = '';
+    amountEC.text = '';
+    grammageEC.text = '';
+
+    indexBreakfast++;
+  }
+
+  void goToNextPage() {
     // Get.toNamed(RoutesApplication.brunch);
   }
 }
