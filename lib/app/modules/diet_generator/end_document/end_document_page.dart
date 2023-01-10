@@ -48,7 +48,7 @@ class EndDocumentPage extends GetView<EndDocumentController> {
                   child: Column(
                     children: [
                       Text(
-                        'Desjejum:',
+                        'Colação:',
                         style: TextStyle(
                           color: Colors.amber[900],
                         ),
@@ -65,11 +65,37 @@ class EndDocumentPage extends GetView<EndDocumentController> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Almoço:',
+                        style: TextStyle(
+                          color: Colors.amber[900],
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(controller.lunchDiet.option.toString()),
+                      const SizedBox(height: 2),
+                      Text(controller.lunchDiet.amount.toString()),
+                      const SizedBox(height: 2),
+                      Text(controller.lunchDiet.grammage.toString()),
+                      const SizedBox(height: 2),
+                    ],
+                  ),
+                ),
+              ),
+            ),
             DietButton(
               text: 'Confirmar',
               action: () => controller.generatePdf(
                 controller.breakfastDiet,
                 controller.brunchDiet,
+                controller.lunchDiet,
               ),
             ),
           ],

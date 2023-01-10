@@ -1,20 +1,18 @@
-import 'dart:developer';
-
-import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfast_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/3_lunch/lunch_controller.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class BreakfastPage extends GetView<BreakfastController> {
+class LunchPage extends GetView<LunchController> {
   final _formKey = GlobalKey<FormState>();
 
-  BreakfastPage({Key? key}) : super(key: key);
+  LunchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('breakfast')),
+      appBar: AppBar(title: const Text('Lunch page')),
       body: SingleChildScrollView(
         child: SizedBox(
           height: Get.height,
@@ -30,10 +28,9 @@ class BreakfastPage extends GetView<BreakfastController> {
                   child: Padding(
                     padding: const EdgeInsets.all(8),
                     child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
                       child: Obx(
                         () => Row(
-                          children: controller.listOptionalBreakfast
+                          children: controller.listOptionalLunch
                               .map(
                                 (element) => Column(
                                   children: [
@@ -100,7 +97,7 @@ class BreakfastPage extends GetView<BreakfastController> {
                             width: Get.width * 0.3,
                             child: DietButton(
                               text: '+',
-                              action: () => controller.optionalBreakfast(),
+                              action: () => controller.optionalBrunch(),
                             ),
                           ),
                         ],

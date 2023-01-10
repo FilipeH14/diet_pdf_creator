@@ -5,5 +5,6 @@ class RoutesApplication {
 
   static const String breakfast = '/breakfast';
   static const String brunch = '/brunch';
+  static const String lunch = '/lunch';
   static const String endDocument = '/endDocument';
 }

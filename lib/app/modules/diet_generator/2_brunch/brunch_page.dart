@@ -14,31 +14,104 @@ class BrunchPage extends GetView<BrunchController> {
     return Scaffold(
       appBar: AppBar(title: const Text('brunch page')),
       body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
+        child: SizedBox(
+          height: Get.height,
           child: Column(
             children: [
-              DietFormField(
-                placeholder: 'opção',
-                controller: controller.optionEC,
-              ),
-              DietFormField(
-                placeholder: 'quantidade',
-                controller: controller.amountEC,
-              ),
-              DietFormField(
-                placeholder: 'peso',
-                controller: controller.grammageEC,
-              ),
-              Center(
-                child: Text(
-                  controller.breakfastDiet.option.toString(),
-                  style: const TextStyle(color: Colors.red),
+              Expanded(
+                child: Container(
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: SingleChildScrollView(
+                      child: Obx(
+                        () => Row(
+                          children: controller.listOptionalBrunch
+                              .map(
+                                (element) => Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 5,
+                                        vertical: 10,
+                                      ),
+                                      child: Text(element.option.toString()),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 5,
+                                        vertical: 10,
+                                      ),
+                                      child: Text(element.amount.toString()),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 5,
+                                        vertical: 10,
+                                      ),
+                                      child: Text(element.grammage.toString()),
+                                    ),
+                                  ],
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-              DietButton(
-                text: 'gerar pdf',
-                action: () => controller.goToNextPage(),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      DietFormField(
+                        placeholder: 'opção',
+                        controller: controller.optionEC,
+                      ),
+                      DietFormField(
+                        placeholder: 'quantidade',
+                        controller: controller.amountEC,
+                      ),
+                      DietFormField(
+                        placeholder: 'peso',
+                        controller: controller.grammageEC,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            width: Get.width * 0.3,
+                            child: DietButton(
+                              text: 'ou',
+                              action: () {},
+                            ),
+                          ),
+                          SizedBox(
+                            width: Get.width * 0.3,
+                            child: DietButton(
+                              text: '+',
+                              action: () => controller.optionalBrunch(),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: Get.width,
+                        child: DietButton(
+                          text: 'ir para colação',
+                          action: () => controller.goToNextPage(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
