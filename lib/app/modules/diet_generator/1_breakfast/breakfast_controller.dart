@@ -10,10 +10,13 @@ class BreakfastController extends GetxController {
   final amountEC = TextEditingController();
   final grammageEC = TextEditingController();
 
-  final listOptionalBreakfast = <Meal>[].obs;
-  // final mealsOptional = <List<Meal>>[].obs;
+  // final listOptionalBreakfast = <Meal>[].obs;
+  // final mealsOptionalBreakfast = <List<Meal>>[].obs;
 
-  // int indexBreakfast = 0;
+  List<Meal> listOptionalBreakfast = <Meal>[].obs;
+  List<List<Meal>> mealsOptionalBreakfast = <List<Meal>>[].obs;
+
+  int indexBreakfast = 0;
 
   late Meal breakfastDiet;
 
@@ -31,18 +34,17 @@ class BreakfastController extends GetxController {
     grammageEC.text = '';
   }
 
-  // void addBreakfast() {
+  void addBreakfast() {
 
-  //   log('passou aqui!!!');
+    log('passou aqui!!!');
 
-  //   mealsOptional[indexBreakfast] = listOptionalBreakfast;
+    mealsOptionalBreakfast[indexBreakfast] = listOptionalBreakfast;
 
-  //   optionEC.text = '';
-  //   amountEC.text = '';
-  //   grammageEC.text = '';
+    log('${mealsOptionalBreakfast[indexBreakfast]}');
+    log('${mealsOptionalBreakfast.length}');
 
-  //   indexBreakfast++;
-  // }
+    indexBreakfast++;
+  }
 
   void goToNextPage() => Get.toNamed(RoutesApplication.brunch);
 }

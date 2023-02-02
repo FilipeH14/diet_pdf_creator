@@ -93,14 +93,14 @@ class BreakfastPage extends GetView<BreakfastController> {
                             width: Get.width * 0.3,
                             child: DietButton(
                               text: 'ou',
-                              action: () {},
+                              action: () => controller.optionalBreakfast(),
                             ),
                           ),
                           SizedBox(
                             width: Get.width * 0.3,
                             child: DietButton(
-                              text: '+',
-                              action: () => controller.optionalBreakfast(),
+                              text: 'Terminar',
+                              action: () => controller.addBreakfast(),
                             ),
                           ),
                         ],
