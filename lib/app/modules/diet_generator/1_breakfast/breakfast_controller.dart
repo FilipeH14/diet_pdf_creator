@@ -16,8 +16,6 @@ class BreakfastController extends GetxController {
   List<Meal> listOptionalBreakfast = <Meal>[].obs;
   List<List<Meal>> mealsOptionalBreakfast = <List<Meal>>[].obs;
 
-  int indexBreakfast = 0;
-
   late Meal breakfastDiet;
 
   void optionalBreakfast() {
@@ -38,12 +36,9 @@ class BreakfastController extends GetxController {
 
     log('passou aqui!!!');
 
-    mealsOptionalBreakfast[indexBreakfast] = listOptionalBreakfast;
+    mealsOptionalBreakfast.add(listOptionalBreakfast);
 
-    log('${mealsOptionalBreakfast[indexBreakfast]}');
     log('${mealsOptionalBreakfast.length}');
-
-    indexBreakfast++;
   }
 
   void goToNextPage() => Get.toNamed(RoutesApplication.brunch);
