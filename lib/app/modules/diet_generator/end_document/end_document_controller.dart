@@ -22,11 +22,11 @@ class EndDocumentController extends GetxController {
 
   @override
   void onInit() {
-    breakfastDiet = Meal(
-      option: getBreakfast.breakfastDiet.option,
-      amount: getBreakfast.breakfastDiet.amount,
-      grammage: getBreakfast.breakfastDiet.grammage,
-    );
+    // breakfastDiet = Meal(
+    //   option: getBreakfast.breakfastDiet.option,
+    //   amount: getBreakfast.breakfastDiet.amount,
+    //   grammage: getBreakfast.breakfastDiet.grammage,
+    // );
 
     brunchDiet = Meal(
       option: getBrunch.brunchDiet.option,

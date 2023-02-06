@@ -28,7 +28,7 @@ class BrunchController extends GetxController {
     //   grammage: getBreakfast.breakfastDiet.grammage,
     // );
 
-    breakfastDiet = getBreakfast.listOptionalBreakfast;
+    // breakfastDiet = getBreakfast.listOptionalBreakfast;
 
     super.onInit();
   }

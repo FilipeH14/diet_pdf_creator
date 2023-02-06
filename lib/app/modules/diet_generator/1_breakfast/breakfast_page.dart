@@ -1,124 +1,35 @@
 import 'dart:developer';
 
 import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfast_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/widgets/meal_breakfast_page.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/2_brunch/brunch_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/2_brunch/brunch_page.dart';
+import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BreakfastPage extends GetView<BreakfastController> {
-  final _formKey = GlobalKey<FormState>();
-
-  BreakfastPage({Key? key}) : super(key: key);
+  const BreakfastPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('breakfast')),
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: Get.height,
-          child: Column(
-            children: [
-              Expanded(
-                child: Container(
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Obx(
-                        () => Row(
-                          children: controller.listOptionalBreakfast
-                              .map(
-                                (element) => Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 5,
-                                        vertical: 10,
-                                      ),
-                                      child: Text(element.option.toString()),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 5,
-                                        vertical: 10,
-                                      ),
-                                      child: Text(element.amount.toString()),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 5,
-                                        vertical: 10,
-                                      ),
-                                      child: Text(element.grammage.toString()),
-                                    ),
-                                  ],
-                                ),
-                              )
-                              .toList(),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(8),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      DietFormField(
-                        placeholder: 'opção',
-                        controller: controller.optionEC,
-                      ),
-                      DietFormField(
-                        placeholder: 'quantidade',
-                        controller: controller.amountEC,
-                      ),
-                      DietFormField(
-                        placeholder: 'peso',
-                        controller: controller.grammageEC,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            width: Get.width * 0.3,
-                            child: DietButton(
-                              text: 'ou',
-                              action: () => controller.optionalBreakfast(),
-                            ),
-                          ),
-                          SizedBox(
-                            width: Get.width * 0.3,
-                            child: DietButton(
-                              text: 'Terminar',
-                              action: () => controller.addBreakfast(),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: Get.width,
-                        child: DietButton(
-                          text: 'ir para colação',
-                          action: () => controller.goToNextPage(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+      body: const Center(
+        child: Text('PDF Diet Creator'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          Get.to(
+            const MealBreakfastPage(),
+            duration: const Duration(milliseconds: 1000),
+            transition: Transition.downToUp,
+            curve: Curves.easeInOutQuad,
+          );
+        },
       ),
     );
   }

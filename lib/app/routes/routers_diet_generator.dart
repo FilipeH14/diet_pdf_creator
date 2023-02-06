@@ -16,7 +16,7 @@ class RoutersDietGenerator {
     GetPage(
       name: RoutesApplication.breakfast,
       binding: BreakfastBinding(),
-      page: () => BreakfastPage(),
+      page: () => const BreakfastPage(),
     ),
     GetPage(
       name: RoutesApplication.brunch,
