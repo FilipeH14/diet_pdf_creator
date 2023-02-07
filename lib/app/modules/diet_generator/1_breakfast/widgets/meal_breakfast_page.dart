@@ -35,6 +35,7 @@ class MealBreakfastPage extends GetView<BreakfastController> {
         padding: const EdgeInsets.all(35),
         child: SingleChildScrollView(
           child: Form(
+            key: controller.formKey,
             child: Column(
               children: [
                 const Text('Opções para desjejum'),
@@ -77,11 +78,7 @@ class MealBreakfastPage extends GetView<BreakfastController> {
                 Column(
                   children: [
                     TextFormField(
-                      onSaved: (newValue) =>
-                          controller.breakfastValues.addEntries(
-                        {'${controller.breakfastValues.length}': newValue}
-                            .entries,
-                      ),
+                      onSaved: (newValue) => controller.insertValues(newValue),
                       decoration: const InputDecoration(
                         labelText: 'opção',
                         border: OutlineInputBorder(),
@@ -90,11 +87,7 @@ class MealBreakfastPage extends GetView<BreakfastController> {
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
-                      onSaved: (newValue) =>
-                          controller.breakfastValues.addEntries(
-                        {'${controller.breakfastValues.length}': newValue}
-                            .entries,
-                      ),
+                      onSaved: (newValue) => controller.insertValues(newValue),
                       decoration: const InputDecoration(
                         labelText: 'quantidade',
                         border: OutlineInputBorder(),
@@ -103,11 +96,7 @@ class MealBreakfastPage extends GetView<BreakfastController> {
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
-                      onSaved: (newValue) =>
-                          controller.breakfastValues.addEntries(
-                        {'${controller.breakfastValues.length}': newValue}
-                            .entries,
-                      ),
+                      onSaved: (newValue) => controller.insertValues(newValue),
                       decoration: const InputDecoration(
                         labelText: 'peso',
                         border: OutlineInputBorder(),
@@ -121,6 +110,7 @@ class MealBreakfastPage extends GetView<BreakfastController> {
           ),
           SpeedDialChild(
             child: const Icon(Icons.save_alt_outlined),
+            onTap: () => controller.saveValues(),
           ),
         ],
       ),
