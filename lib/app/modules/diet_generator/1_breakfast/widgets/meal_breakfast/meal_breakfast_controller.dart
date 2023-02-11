@@ -4,7 +4,7 @@ import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class BreakfastController extends GetxController {
+class MealBreakfastController extends GetxController {
   final formKey = GlobalKey<FormState>();
 
   final optionEC = TextEditingController();
@@ -50,10 +50,5 @@ class BreakfastController extends GetxController {
     grammageEC.clear();
 
     indexBreakfast ++;
-  }
-
-  void closeForm() {
-    positionList ++;
-    Get.back();
   }
 }
