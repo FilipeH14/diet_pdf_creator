@@ -29,5 +29,6 @@ class OptionMeal {
     );
   }
 
-  factory OptionMeal.fromJson(String json) => OptionMeal.fromMap(jsonDecode(json));
+  factory OptionMeal.fromJson(String json) =>
+      OptionMeal.fromMap(jsonDecode(json));
 }
