@@ -18,10 +18,7 @@ class BreakfastPage extends GetView<BreakfastController> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {
-          log('passou aqui!!!');
-          Get.toNamed(RoutesApplication.mealBreakfast);
-        },
+        onPressed: () => controller.addMealBreakfast(),
       ),
     );
   }

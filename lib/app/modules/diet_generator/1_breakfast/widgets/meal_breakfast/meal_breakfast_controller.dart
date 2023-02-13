@@ -23,8 +23,6 @@ class MealBreakfastController extends GetxController {
 
   int indexBreakfast = 1;
 
-  int positionList = 0;
-
   void insertValues() {
     formKey.currentState?.save();
 
@@ -39,8 +37,6 @@ class MealBreakfastController extends GetxController {
 
     // breakfastMeal = OptionMeal(id: 'meal${indexBreakfast.toString()}', meal: breakfastDiet);
 
-    breakfast.insert(positionList, breakfastMeal);
-
     log('$breakfastMeal');
 
     log('$breakfast');
@@ -50,5 +46,10 @@ class MealBreakfastController extends GetxController {
     grammageEC.clear();
 
     indexBreakfast ++;
+  }
+
+  void saveMealBreakfast() {
+    log('Voltando');
+    Get.back(result: breakfastMeal);
   }
 }

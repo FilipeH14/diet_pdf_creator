@@ -1,59 +1,25 @@
 import 'dart:developer';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
-import 'package:flutter/material.dart';
+import 'package:diet_pdf_creator/app/models/option_meal.dart';
+import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:get/get.dart';
 
 class BreakfastController extends GetxController {
-  final formKey = GlobalKey<FormState>();
+  Map listMeal = <String, Meal>{};
 
-  final optionEC = TextEditingController();
-  final amountEC = TextEditingController();
-  final grammageEC = TextEditingController();
+  var listBreakfast = <OptionMeal>[].obs;
 
-  var breakfastValues = <String, dynamic>{}.obs;
+  void addMealBreakfast() async {
+    log('Passou aqui');
+    listMeal = await Get.toNamed(RoutesApplication.mealBreakfast);
 
-  var breakfast = [];
+    listMeal.forEach((key, value) => listBreakfast.add(
+          OptionMeal(id: key, meal: value),
+        ));
 
-  var breakfastMeal = <String, Meal>{};
+    log('${listBreakfast.length}');
 
-  // late OptionMeal breakfastMeal;
-
-  late Meal breakfastDiet;
-
-  int indexBreakfast = 1;
-
-  int positionList = 0;
-
-  void insertValues() {
-    formKey.currentState?.save();
-
-    breakfastDiet = Meal(
-      option: optionEC.text,
-      amount: amountEC.text,
-      grammage: grammageEC.text,
-    );
-
-    breakfastMeal.addEntries(
-        {'meal${indexBreakfast.toString()}': breakfastDiet}.entries);
-
-    // breakfastMeal = OptionMeal(id: 'meal${indexBreakfast.toString()}', meal: breakfastDiet);
-
-    breakfast.insert(positionList, breakfastMeal);
-
-    log('$breakfastMeal');
-
-    log('$breakfast');
-
-    optionEC.clear();
-    amountEC.clear();
-    grammageEC.clear();
-
-    indexBreakfast ++;
-  }
-
-  void closeForm() {
-    positionList ++;
-    Get.back();
+    log('$listMeal');
   }
 }
