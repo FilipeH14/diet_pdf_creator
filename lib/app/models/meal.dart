@@ -17,22 +17,22 @@ class Meal {
   String toString() => 'Meal(option: $option, amount: $amount, grammage: $grammage)';
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+    return {
       'option': option,
       'amount': amount,
       'grammage': grammage,
     };
   }
 
+  String toJson() => jsonEncode(toMap());
+
   factory Meal.fromMap(Map<String, dynamic> map) {
     return Meal(
-      option: map['option'] != null ? map['option'] as String : null,
-      amount: map['amount'] != null ? map['amount'] as String : null,
-      grammage: map['grammage'] != null ? map['grammage'] as String : null,
+      option: map['option'] ?? '',
+      amount: map['amount'] ?? '',
+      grammage: map['grammage'] ?? '',
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory Meal.fromJson(String source) => Meal.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Meal.fromJson(String json) => Meal.fromMap(jsonDecode(json));
 }
