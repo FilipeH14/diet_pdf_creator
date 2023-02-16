@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:diet_pdf_creator/app/models/option_meal.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
@@ -10,16 +8,29 @@ class BreakfastController extends GetxController {
 
   var listBreakfast = <OptionMeal>[].obs;
 
+  var listOptions = <Meal>[];
+
+  var breakfast = <List<Meal>>[];
+
+  int positionList = 0;
+
   void addMealBreakfast() async {
-    log('Passou aqui');
     listMeal = await Get.toNamed(RoutesApplication.mealBreakfast);
 
     listMeal.forEach((key, value) => listBreakfast.add(
           OptionMeal(id: key, meal: value),
         ));
 
-    log('${listBreakfast.length}');
+    listMeal.values.forEach((element) {
+      listOptions.add(element);
+    });
 
-    log('$listMeal');
+    var listOptionCopy = [...listOptions];
+
+    breakfast.insert(positionList, listOptionCopy);
+
+    listOptions.clear();
+
+    positionList++;
   }
 }
