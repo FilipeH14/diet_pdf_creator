@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:diet_pdf_creator/app/models/option_meal.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
@@ -10,7 +12,7 @@ class BreakfastController extends GetxController {
 
   var listOptions = <Meal>[];
 
-  var breakfast = <List<Meal>>[];
+  RxList<List<Meal>> breakfast = <List<Meal>>[].obs;
 
   int positionList = 0;
 
@@ -28,6 +30,8 @@ class BreakfastController extends GetxController {
     var listOptionCopy = [...listOptions];
 
     breakfast.insert(positionList, listOptionCopy);
+
+    log('$breakfast');
 
     listOptions.clear();
 

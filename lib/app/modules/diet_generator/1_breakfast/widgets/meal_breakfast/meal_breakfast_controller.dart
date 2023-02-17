@@ -45,11 +45,8 @@ class MealBreakfastController extends GetxController {
     amountEC.clear();
     grammageEC.clear();
 
-    indexBreakfast ++;
+    indexBreakfast++;
   }
 
-  void saveMealBreakfast() {
-    log('Voltando');
-    Get.back(result: breakfastMeal);
-  }
+  void saveMealBreakfast() => Get.back(result: breakfastMeal);
 }
