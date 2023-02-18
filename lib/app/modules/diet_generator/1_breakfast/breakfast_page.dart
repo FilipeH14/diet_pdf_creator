@@ -10,35 +10,48 @@ class BreakfastPage extends GetView<BreakfastController> {
     return Scaffold(
       appBar: AppBar(title: const Text('breakfast')),
       body: SingleChildScrollView(
-        child: Container(
-          color: Colors.blue,
-          height: Get.height,
-          width: Get.width,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-            child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Text(
+                'Dieta do desjejum!!',
+                style: TextStyle(
+                  color: Colors.grey[400],
+                  fontSize: 25,
+                ),
+              ),
+            ),
+            Container(
               color: Colors.white,
-              child: Obx(() => ListView.builder(
+              child: Obx(() => ListView.separated(
                     itemCount: controller.breakfast.length,
                     shrinkWrap: true,
-                    itemBuilder: (context, index) => Wrap(
-                      children: controller.breakfast[index]
-                          .map((value) =>  IntrinsicWidth(
-                            child: Card(
-                              child: Row(
-                                children: [
-                                  Text('${value.option}, '),
-                                  Text('${value.amount}, '),
-                                  Text('${value.grammage} '),
-                                ],
-                              ),
-                            ),
-                          ))
-                          .toList(),
+                    separatorBuilder: (context, index) => Divider(
+                      color: Colors.grey[400],
+                    ),
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Wrap(
+                        children: controller.breakfast[index]
+                            .map((value) => IntrinsicWidth(
+                                  child: Card(
+                                    child: Row(
+                                      children: [
+                                        Text('${value.option}, '),
+                                        Text('${value.amount}, '),
+                                        Text('${value.grammage} '),
+                                      ],
+                                    ),
+                                  ),
+                                ))
+                            .toList(),
+                      ),
                     ),
                   )),
             ),
-          ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
