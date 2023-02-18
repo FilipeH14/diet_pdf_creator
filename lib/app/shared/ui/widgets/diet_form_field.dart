@@ -24,7 +24,7 @@ class _DietFormFieldState extends State<DietFormField> {
   void initState() {
     _focusNode.addListener(() {
       setState(() {
-        _borderColor = _focusNode.hasFocus ? DietUiColors.primary : Colors.grey;
+        _borderColor = _focusNode.hasFocus ? DietUiColors.i.primary : Colors.grey;
       });
     });
   }

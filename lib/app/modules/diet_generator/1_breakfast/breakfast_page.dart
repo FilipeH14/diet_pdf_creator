@@ -1,4 +1,5 @@
 import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfast_controller.dart';
+import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,7 +9,7 @@ class BreakfastPage extends GetView<BreakfastController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('breakfast')),
+      appBar: DietAppBar(dietTitle: 'Desjejum'),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,9 +29,6 @@ class BreakfastPage extends GetView<BreakfastController> {
               child: Obx(() => ListView.separated(
                     itemCount: controller.breakfast.length,
                     shrinkWrap: true,
-                    separatorBuilder: (context, index) => Divider(
-                      color: Colors.grey[400],
-                    ),
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.all(8),
                       child: Wrap(
@@ -48,6 +46,9 @@ class BreakfastPage extends GetView<BreakfastController> {
                                 ))
                             .toList(),
                       ),
+                    ),
+                    separatorBuilder: (context, index) => Divider(
+                      color: Colors.grey[400],
                     ),
                   )),
             ),

@@ -10,7 +10,7 @@ class SigninPage extends GetView<SigninController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DietUiColors.secondary,
+      backgroundColor: DietUiColors.i.secondary,
       body: Center(
         child: SizedBox(
           height: 50,

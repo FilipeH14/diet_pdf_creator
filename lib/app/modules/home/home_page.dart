@@ -47,7 +47,7 @@ class HomePage extends GetView<HomeController> {
                         height: 40,
                         width: Get.width,
                         decoration: BoxDecoration(
-                          color: DietUiColors.lightGreen,
+                          color: DietUiColors.i.lightGreen,
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Padding(
@@ -58,7 +58,7 @@ class HomePage extends GetView<HomeController> {
                               Text(
                                 'Montar dieta',
                                 style: TextStyle(
-                                  color: DietUiColors.primary,
+                                  color: DietUiColors.i.primary,
                                 ),
                               ),
                               Container(
@@ -69,7 +69,7 @@ class HomePage extends GetView<HomeController> {
                                 ),
                                 child: Icon(
                                   Icons.arrow_forward_ios_rounded,
-                                  color: DietUiColors.primary,
+                                  color: DietUiColors.i.primary,
                                 ),
                               )
                             ],
