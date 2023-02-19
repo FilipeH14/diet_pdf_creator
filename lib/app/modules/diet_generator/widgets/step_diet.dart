@@ -1,78 +1,23 @@
-import 'dart:math';
-
 import 'package:diet_pdf_creator/app/shared/ui/diet_ui_colors.dart';
 import 'package:flutter/material.dart';
 
 class StepDiet extends StatelessWidget {
-  const StepDiet({Key? key}) : super(key: key);
+  final int currentStep;
+  final int amountStep;
+
+  const StepDiet({
+    required this.currentStep,
+    required this.amountStep,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CircleAvatar(
-            backgroundColor: DietUiColors.i.midiumGreen,
-            radius: 10,
-            child: Container(
-              height: 10,
-              width: 10,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          CircleAvatar(
-            backgroundColor: DietUiColors.i.midiumGreen,
-            radius: 10,
-            child: Container(
-              height: 10,
-              width: 10,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          CircleAvatar(
-            backgroundColor: DietUiColors.i.midiumGreen,
-            radius: 10,
-            child: Container(
-              height: 10,
-              width: 10,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          CircleAvatar(
-            backgroundColor: DietUiColors.i.midiumGreen,
-            radius: 10,
-            child: Container(
-              height: 10,
-              width: 10,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          CircleAvatar(
-            backgroundColor: DietUiColors.i.midiumGreen,
-            radius: 10,
-            child: Container(
-              height: 10,
-              width: 10,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
+    var steps = <Widget>[];
+
+    for (int i = 0; i < amountStep; i++) {
+      if (i < currentStep - 1) {
+        steps.add(
           CircleAvatar(
             backgroundColor: DietUiColors.i.midiumGreen,
             radius: 10,
@@ -82,7 +27,37 @@ class StepDiet extends StatelessWidget {
               size: 18,
             ),
           ),
-        ],
+        );
+      } else if (i == currentStep - 1) {
+        steps.add(
+          CircleAvatar(
+            backgroundColor: DietUiColors.i.midiumGreen,
+            radius: 10,
+          ),
+        );
+      } else {
+        steps.add(
+          CircleAvatar(
+            backgroundColor: DietUiColors.i.midiumGreen,
+            radius: 10,
+            child: Container(
+              height: 10,
+              width: 10,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+        );
+      }
+    }
+
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: steps,
       ),
     );
   }
