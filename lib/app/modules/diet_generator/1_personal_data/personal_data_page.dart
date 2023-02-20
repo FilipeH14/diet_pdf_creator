@@ -1,4 +1,4 @@
-import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/1_personal_data/personal_data_controller.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
@@ -7,7 +7,7 @@ import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PersonalDataPage extends GetView<BreakfastController> {
+class PersonalDataPage extends GetView<PersonalDataController> {
   const PersonalDataPage({Key? key}) : super(key: key);
 
   @override
@@ -24,16 +24,16 @@ class PersonalDataPage extends GetView<BreakfastController> {
                 children: [
                   DietFormField(
                     placeholder: 'Nome',
-                    controller: TextEditingController(),
+                    controller: controller.nameEC,
                   ),
                   DietFormField(
                     placeholder: 'Data',
-                    controller: TextEditingController(),
+                    controller: controller.dateEc,
                   ),
                   Center(
                     child: DietButton(
                       text: 'Montar dieta',
-                      action: () => Get.toNamed(RoutesApplication.breakfast),
+                      action: () => controller.goToBreakfast(),
                     ),
                   ),
                 ],
