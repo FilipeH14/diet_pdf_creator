@@ -1,3 +1,5 @@
+import 'package:diet_pdf_creator/app/modules/diet_generator/1_personal_data/personal_data_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/1_personal_data/personal_data_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/widgets/meal_breakfast/meal_breakfast_binding.dart';
@@ -17,6 +19,12 @@ class RoutersDietGenerator {
 
   static final routers = <GetPage>[
     GetPage(
+      name: RoutesApplication.personalData,
+      binding: PersonalDataBinding(),
+      page: () => const PersonalDataPage(),
+    ),
+
+    GetPage(
       name: RoutesApplication.breakfast,
       binding: BreakfastBinding(),
       page: () => const BreakfastPage(),
@@ -29,7 +37,6 @@ class RoutersDietGenerator {
       curve: Curves.easeInOutQuad,
       transition: Transition.downToUp,
     ),
-
     GetPage(
       name: RoutesApplication.brunch,
       binding: BrunchBinding(),

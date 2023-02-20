@@ -13,7 +13,7 @@ class BreakfastPage extends GetView<BreakfastController> {
       appBar: DietAppBar(dietTitle: 'Desjejum'),
       body: Column(
         children: [
-          const StepDiet(currentStep: 1, amountStep: 6),
+          const StepDiet(currentStep: 2, amountStep: 7),
           Expanded(
             child: Obx(
               () => Visibility(

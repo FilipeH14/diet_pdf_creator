@@ -76,7 +76,7 @@ class HomePage extends GetView<HomeController> {
                           ),
                         ),
                       ),
-                      onTap: () => Get.toNamed(RoutesApplication.breakfast),
+                      onTap: () => Get.toNamed(RoutesApplication.personalData),
                     ),
                   ],
                 ),

@@ -3,6 +3,8 @@ class RoutesApplication {
   static const String signInRoute = '/signin';
   static const String homeRoute = '/home';
 
+  static const String personalData = '/personalData';
+
   static const String breakfast = '/breakfast';
   static const String mealBreakfast = '/mealBreakfast';
 
