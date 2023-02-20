@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
-import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfast_controller.dart';
-import 'package:diet_pdf_creator/app/modules/diet_generator/2_brunch/brunch_controller.dart';
-import 'package:diet_pdf_creator/app/modules/diet_generator/3_lunch/lunch_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/3_brunch/brunch_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_controller.dart';
 import 'package:diet_pdf_creator/app/modules/pdf_screen/pdf_screen.dart';
 import 'package:get/get.dart';
 

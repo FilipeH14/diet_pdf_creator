@@ -1,18 +1,18 @@
-import 'package:diet_pdf_creator/app/modules/diet_generator/3_lunch/lunch_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/3_brunch/brunch_controller.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LunchPage extends GetView<LunchController> {
+class BrunchPage extends GetView<BrunchController> {
   final _formKey = GlobalKey<FormState>();
 
-  LunchPage({Key? key}) : super(key: key);
+  BrunchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Lunch page')),
+      appBar: AppBar(title: const Text('brunch page')),
       body: SingleChildScrollView(
         child: SizedBox(
           height: Get.height,
@@ -30,7 +30,7 @@ class LunchPage extends GetView<LunchController> {
                     child: SingleChildScrollView(
                       child: Obx(
                         () => Row(
-                          children: controller.listOptionalLunch
+                          children: controller.listOptionalBrunch
                               .map(
                                 (element) => Column(
                                   children: [

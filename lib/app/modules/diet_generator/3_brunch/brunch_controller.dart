@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
-import 'package:diet_pdf_creator/app/modules/diet_generator/1_breakfast/breakfast_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_controller.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
