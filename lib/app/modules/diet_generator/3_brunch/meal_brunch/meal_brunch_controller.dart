@@ -1,49 +1,49 @@
 import 'dart:developer';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
-class MealBreakfastController extends GetxController {
+class MealBrunchController extends GetxController {
   final formKey = GlobalKey<FormState>();
 
   final optionEC = TextEditingController();
   final amountEC = TextEditingController();
   final grammageEC = TextEditingController();
 
-  var breakfastValues = <String, dynamic>{}.obs;
+  var brunchValues = <String, dynamic>{}.obs;
 
-  var breakfast = [];
+  var brunch = [];
 
-  var breakfastMeal = <String, Meal>{};
+  var brunchMeal = <String, Meal>{};
 
-  late Meal breakfastDiet;
+  late Meal brunchDiet;
 
-  int indexBreakfast = 1;
+  int indexBrunch = 1;
 
   void insertValues() {
     formKey.currentState?.save();
 
-    breakfastDiet = Meal(
+    brunchDiet = Meal(
       option: optionEC.text,
       amount: amountEC.text,
       grammage: grammageEC.text,
     );
 
-    breakfastMeal.addEntries({
-      'meal${indexBreakfast.toString()}': breakfastDiet,
+    brunchMeal.addEntries({
+      'meal${indexBrunch.toString()}': brunchDiet,
     }.entries);
 
-    log('$breakfastMeal');
+    log('$brunchMeal');
 
-    log('$breakfast');
+    log('$brunch');
 
     optionEC.clear();
     amountEC.clear();
     grammageEC.clear();
 
-    indexBreakfast++;
+    indexBrunch++;
   }
 
-  void saveMealBreakfast() => Get.back(result: breakfastMeal);
+  void saveMealBrunch() => Get.back(result: brunchMeal);
 }

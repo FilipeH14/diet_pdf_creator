@@ -9,6 +9,8 @@ class RoutesApplication {
   static const String mealBreakfast = '/mealBreakfast';
 
   static const String brunch = '/brunch';
+  static const String mealBrunch = '/mealBrunch';
+
   static const String lunch = '/lunch';
   static const String endDocument = '/endDocument';
 }

@@ -1,6 +1,8 @@
 import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_controller.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
+import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
+import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -62,6 +64,10 @@ class BreakfastPage extends GetView<BreakfastController> {
                                 color: Colors.grey[400],
                               ),
                             )),
+                      ),
+                      DietButton(
+                        text: 'Ir para colação',
+                        action: () => Get.toNamed(RoutesApplication.brunch),
                       ),
                     ],
                   ),

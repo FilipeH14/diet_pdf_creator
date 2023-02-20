@@ -28,17 +28,17 @@ class EndDocumentController extends GetxController {
     //   grammage: getBreakfast.breakfastDiet.grammage,
     // );
 
-    brunchDiet = Meal(
-      option: getBrunch.brunchDiet.option,
-      amount: getBrunch.brunchDiet.amount,
-      grammage: getBrunch.brunchDiet.grammage,
-    );
+    // brunchDiet = Meal(
+    //   option: getBrunch.brunchDiet.option,
+    //   amount: getBrunch.brunchDiet.amount,
+    //   grammage: getBrunch.brunchDiet.grammage,
+    // );
 
-    lunchDiet = Meal(
-      option: getLunch.lunchDiet.option,
-      amount: getLunch.lunchDiet.amount,
-      grammage: getLunch.lunchDiet.grammage,
-    );
+    // lunchDiet = Meal(
+    //   option: getLunch.lunchDiet.option,
+    //   amount: getLunch.lunchDiet.amount,
+    //   grammage: getLunch.lunchDiet.grammage,
+    // );
 
     super.onInit();
   }

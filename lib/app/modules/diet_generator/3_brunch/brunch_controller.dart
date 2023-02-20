@@ -1,51 +1,40 @@
 import 'dart:developer';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
+import 'package:diet_pdf_creator/app/models/option_meal.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_controller.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class BrunchController extends GetxController {
-  final optionEC = TextEditingController();
-  final amountEC = TextEditingController();
-  final grammageEC = TextEditingController();
+  Map listMeal = <String, Meal>{};
 
-  final listOptionalBrunch = <Meal>[].obs;
+  var listBrunch = <OptionMeal>[].obs;
 
-  final getBreakfast = Get.find<BreakfastController>();
+  var listOptions = <Meal>[];
 
-  // late final Meal breakfastDiet;
-  late final List<Meal> breakfastDiet;
+  RxList<List<Meal>> brunch = <List<Meal>>[].obs;
 
-  late Meal brunchDiet;
+  int positionList = 0;
 
-  @override
-  void onInit() {
-    // breakfastDiet = Meal(
-    //   option: getBreakfast.breakfastDiet.option,
-    //   amount: getBreakfast.breakfastDiet.amount,
-    //   grammage: getBreakfast.breakfastDiet.grammage,
-    // );
+  void addMealBrunch() async {
+    listMeal = await Get.toNamed(RoutesApplication.mealBrunch);
 
-    // breakfastDiet = getBreakfast.listOptionalBreakfast;
+    listMeal.forEach((key, value) => listBrunch.add(
+          OptionMeal(id: key, meal: value),
+        ));
 
-    super.onInit();
+    listMeal.values.forEach((element) {
+      listOptions.add(element);
+    });
+
+    var listOptionCopy = [...listOptions];
+
+    brunch.insert(positionList, listOptionCopy);
+
+    listOptions.clear();
+
+    positionList++;
   }
-
-  void optionalBrunch() {
-    brunchDiet = Meal(
-      option: optionEC.text,
-      amount: amountEC.text,
-      grammage: grammageEC.text,
-    );
-
-    listOptionalBrunch.add(brunchDiet);
-
-    optionEC.text = '';
-    amountEC.text = '';
-    grammageEC.text = '';
-  }
-
-  void goToNextPage() => Get.toNamed(RoutesApplication.lunch);
 }
