@@ -10,6 +10,8 @@ import 'package:diet_pdf_creator/app/modules/diet_generator/3_brunch/meal_brunch
 import 'package:diet_pdf_creator/app/modules/diet_generator/3_brunch/meal_brunch/meal_brunch_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_page.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/meal_lunch/meal_lunch_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/meal_lunch/meal_lunch_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_page.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
@@ -59,6 +61,15 @@ class RoutersDietGenerator {
       binding: LunchBinding(),
       page: () => LunchPage(),
     ),
+    GetPage(
+      name: RoutesApplication.mealLunch,
+      binding: MealLunchBinding(),
+      page: () => const MealLunchPage(),
+      transitionDuration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOutQuad,
+      transition: Transition.downToUp,
+    ),
+
     GetPage(
       name: RoutesApplication.endDocument,
       binding: EndDocumentBinding(),

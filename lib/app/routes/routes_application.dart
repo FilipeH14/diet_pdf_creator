@@ -12,5 +12,7 @@ class RoutesApplication {
   static const String mealBrunch = '/mealBrunch';
 
   static const String lunch = '/lunch';
+  static const String mealLunch = '/mealLunch';
+
   static const String endDocument = '/endDocument';
 }
