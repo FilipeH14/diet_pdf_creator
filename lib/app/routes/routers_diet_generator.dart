@@ -12,6 +12,10 @@ import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_bindin
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/meal_lunch/meal_lunch_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/meal_lunch/meal_lunch_page.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/afternoon_snack_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/afternoon_snack_page.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/meal_afternoon_snack/meal_afternoon_snack_page.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/meal_afternoon_snack/meal_afternoon_snack_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_page.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
@@ -59,12 +63,26 @@ class RoutersDietGenerator {
     GetPage(
       name: RoutesApplication.lunch,
       binding: LunchBinding(),
-      page: () => LunchPage(),
+      page: () => const LunchPage(),
     ),
     GetPage(
       name: RoutesApplication.mealLunch,
       binding: MealLunchBinding(),
       page: () => const MealLunchPage(),
+      transitionDuration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOutQuad,
+      transition: Transition.downToUp,
+    ),
+
+    GetPage(
+      name: RoutesApplication.afternoonSnack,
+      binding: AfternoonSnackBinding(),
+      page: () => const AfternoonSnackPage(),
+    ),
+    GetPage(
+      name: RoutesApplication.mealAfternoonSnack,
+      binding: MealAfternoonSnackBinding(),
+      page: () => const MealAfternoonSnackPage(),
       transitionDuration: const Duration(milliseconds: 1000),
       curve: Curves.easeInOutQuad,
       transition: Transition.downToUp,
