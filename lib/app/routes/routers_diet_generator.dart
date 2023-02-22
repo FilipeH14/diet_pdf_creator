@@ -16,6 +16,10 @@ import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/af
 import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/afternoon_snack_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/meal_afternoon_snack/meal_afternoon_snack_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/meal_afternoon_snack/meal_afternoon_snack_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/6_after_training/after_training_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/6_after_training/after_training_page.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/6_after_training/widgets/meal_after_training/meal_after_training_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/6_after_training/widgets/meal_after_training/meal_after_training_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_page.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
@@ -83,6 +87,20 @@ class RoutersDietGenerator {
       name: RoutesApplication.mealAfternoonSnack,
       binding: MealAfternoonSnackBinding(),
       page: () => const MealAfternoonSnackPage(),
+      transitionDuration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOutQuad,
+      transition: Transition.downToUp,
+    ),
+
+    GetPage(
+      name: RoutesApplication.afterTraining,
+      binding: AfterTrainingBinding(),
+      page: () => const AfterTrainingPage(),
+    ),
+    GetPage(
+      name: RoutesApplication.mealAfterTraining,
+      binding: MealAfterTrainingBinding(),
+      page: () => const MealAfterTrainingPage(),
       transitionDuration: const Duration(milliseconds: 1000),
       curve: Curves.easeInOutQuad,
       transition: Transition.downToUp,
