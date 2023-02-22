@@ -1,11 +1,11 @@
-import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/meal_lunch/meal_lunch_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/3_brunch/widgets/meal_brunch/meal_brunch_controller.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MealLunchPage extends GetView<MealLunchController> {
-  const MealLunchPage({Key? key}) : super(key: key);
+class MealBrunchPage extends GetView<MealBrunchController> {
+  const MealBrunchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class MealLunchPage extends GetView<MealLunchController> {
                   width: Get.width,
                   child: DietButton(
                     text: 'Concluir',
-                    action: () => controller.saveMealLunch(),
+                    action: () => controller.saveMealBrunch(),
                   ),
                 ),
               ],

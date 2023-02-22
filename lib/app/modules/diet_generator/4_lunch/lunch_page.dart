@@ -1,5 +1,6 @@
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_controller.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
+import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class LunchPage extends GetView<LunchController> {
                       ),
                       DietButton(
                         text: 'Ir para pré treino',
-                        action: () {},
+                        action: () => Get.toNamed(RoutesApplication.afternoonSnack),
                       ),
                     ],
                   ),

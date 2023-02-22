@@ -1,4 +1,5 @@
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
+import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:get/get.dart';
@@ -66,7 +67,7 @@ class DinnerPage extends GetView<DinnerController> {
                       ),
                       DietButton(
                         text: 'Finalizar',
-                        action: () {},
+                        action: () => Get.toNamed(RoutesApplication.endDocument),
                       ),
                     ],
                   ),

@@ -1,5 +1,6 @@
 import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/afternoon_snack_controller.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
+import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,7 @@ class AfternoonSnackPage extends GetView<AfternoonSnackController> {
                       ),
                       DietButton(
                         text: 'Ir para pós treino',
-                        action: () {},
+                        action: () => Get.toNamed(RoutesApplication.afterTraining),
                       ),
                     ],
                   ),
