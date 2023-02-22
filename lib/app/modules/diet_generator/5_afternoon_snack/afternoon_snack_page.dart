@@ -67,7 +67,8 @@ class AfternoonSnackPage extends GetView<AfternoonSnackController> {
                       ),
                       DietButton(
                         text: 'Ir para pós treino',
-                        action: () => Get.toNamed(RoutesApplication.afterTraining),
+                        action: () =>
+                            Get.toNamed(RoutesApplication.afterTraining),
                       ),
                     ],
                   ),

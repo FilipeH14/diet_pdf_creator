@@ -1,9 +1,11 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/2_breakfast/breakfast_controller.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/3_brunch/brunch_controller.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/afternoon_snack_controller.dart';
 import 'package:diet_pdf_creator/app/modules/pdf_screen/pdf_screen.dart';
 import 'package:get/get.dart';
 
@@ -12,38 +14,37 @@ import 'package:path_provider/path_provider.dart';
 
 class EndDocumentController extends GetxController {
   final getBreakfast = Get.find<BreakfastController>();
-  late final Meal breakfastDiet;
+  var breakfast = <List<Meal>>[];
 
   final getBrunch = Get.find<BrunchController>();
-  late final Meal brunchDiet;
+  var brunch = <List<Meal>>[];
 
   final getLunch = Get.find<LunchController>();
-  late final Meal lunchDiet;
+  var lunch = <List<Meal>>[];
+
+  final getAfternoonSnack = Get.find<AfternoonSnackController>();
+  var afternoonSnack = <List<Meal>>[];
 
   @override
   void onInit() {
-    // breakfastDiet = Meal(
-    //   option: getBreakfast.breakfastDiet.option,
-    //   amount: getBreakfast.breakfastDiet.amount,
-    //   grammage: getBreakfast.breakfastDiet.grammage,
-    // );
+    breakfast = getBreakfast.breakfast;
 
-    // brunchDiet = Meal(
-    //   option: getBrunch.brunchDiet.option,
-    //   amount: getBrunch.brunchDiet.amount,
-    //   grammage: getBrunch.brunchDiet.grammage,
-    // );
+    brunch = getBrunch.brunch;
 
-    // lunchDiet = Meal(
-    //   option: getLunch.lunchDiet.option,
-    //   amount: getLunch.lunchDiet.amount,
-    //   grammage: getLunch.lunchDiet.grammage,
-    // );
+    lunch = getLunch.lunch;
+
+    afternoonSnack = getAfternoonSnack.afternoonSnack;
+
+    log('$breakfast');
+
+    log('$brunch');
+
+    log('$lunch');
 
     super.onInit();
   }
 
-  Future<void> generatePdf(Meal breakfastDiet, Meal brunchDiet, Meal lunchDiet) async {
+  Future<void> generatePdf(breakfastDiet, brunchDiet, lunchDiet) async {
     final pdfLib.Document pdf = pdfLib.Document(deflate: zlib.encode);
 
     pdf.addPage(pdfLib.MultiPage(
@@ -71,7 +72,6 @@ class EndDocumentController extends GetxController {
             ],
           ],
         ),
-
         pdfLib.Text('Almoço'),
         pdfLib.Table.fromTextArray(
           data: <List<String>>[
