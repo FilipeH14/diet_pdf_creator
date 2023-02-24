@@ -175,8 +175,7 @@ class EndDocumentPage extends GetView<EndDocumentController> {
             ),
             DietButton(
               text: 'Confirmar',
-              // action: () => controller.generatePdf(),
-              action: () {},
+              action: () => controller.generatePdf(),
             ),
           ],
         ),
