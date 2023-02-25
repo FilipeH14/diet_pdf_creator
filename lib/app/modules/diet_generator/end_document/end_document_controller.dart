@@ -63,51 +63,6 @@ class EndDocumentController extends GetxController {
     super.onInit();
   }
 
-  Future<void> componentPdf(
-      {required String title, required List<List<Meal>> diet}) async {
-
-    final pdfLib.Document pdf = pdfLib.Document(deflate: zlib.encode);
-
-    pdf.addPage(pdfLib.Page(
-      build: (context) => pdfLib.Column(
-        children: [
-          pdfLib.Text('$title: '),
-          pdfLib.Column(
-            children: diet.asMap().entries.map(
-              (entry) {
-                int index = entry.key;
-
-                return pdfLib.Padding(
-                  padding: const pdfLib.EdgeInsets.all(8),
-                  child: pdfLib.Row(
-                    children: diet[index]
-                        .map((element) => pdfLib.Container(
-                              padding: const pdfLib.EdgeInsets.all(8),
-                              decoration: pdfLib.BoxDecoration(
-                                border: pdfLib.Border.all(width: 1),
-                                borderRadius: pdfLib.BorderRadius.circular(12),
-                              ),
-                              child: pdfLib.Row(
-                                children: [
-                                  pdfLib.Text('${element.option}'),
-                                  pdfLib.SizedBox(width: 10),
-                                  pdfLib.Text('${element.amount}'),
-                                  pdfLib.SizedBox(width: 10),
-                                  pdfLib.Text('${element.grammage}'),
-                                ],
-                              ),
-                            ))
-                        .toList(),
-                  ),
-                );
-              },
-            ).toList(),
-          ),
-        ],
-      ),
-    ));
-  }
-
   Future<void> generatePdf() async {
     final pdfLib.Document pdf = pdfLib.Document(deflate: zlib.encode);
 
