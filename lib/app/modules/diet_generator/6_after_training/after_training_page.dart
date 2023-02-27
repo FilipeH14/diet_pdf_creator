@@ -61,7 +61,10 @@ class AfterTrainingPage extends GetView<AfterTrainingController> {
               padding: const EdgeInsets.all(8),
               child: DietButton(
                 text: 'Ir para o jantar',
-                action: () => Get.toNamed(RoutesApplication.dinner),
+                isEnable: controller.afterTraining.isNotEmpty,
+                action: () => controller.afterTraining.isEmpty
+                    ? null
+                    : Get.toNamed(RoutesApplication.brunch),
               ),
             ),
           ),

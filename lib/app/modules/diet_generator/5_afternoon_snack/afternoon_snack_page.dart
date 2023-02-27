@@ -61,7 +61,10 @@ class AfternoonSnackPage extends GetView<AfternoonSnackController> {
               padding: const EdgeInsets.all(8),
               child: DietButton(
                 text: 'Ir para o pós treino',
-                action: () => Get.toNamed(RoutesApplication.afterTraining),
+                isEnable: controller.afternoonSnack.isNotEmpty,
+                action: () => controller.afternoonSnack.isEmpty
+                    ? null
+                    : Get.toNamed(RoutesApplication.brunch),
               ),
             ),
           ),

@@ -62,7 +62,10 @@ class LunchPage extends GetView<LunchController> {
               padding: const EdgeInsets.all(8),
               child: DietButton(
                 text: 'Ir para o lanche da tarde',
-                action: () => Get.toNamed(RoutesApplication.afternoonSnack),
+                isEnable: controller.lunch.isNotEmpty,
+                action: () => controller.lunch.isEmpty
+                    ? null
+                    : Get.toNamed(RoutesApplication.brunch),
               ),
             ),
           ),

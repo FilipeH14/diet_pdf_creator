@@ -62,7 +62,10 @@ class BrunchPage extends GetView<BrunchController> {
               padding: const EdgeInsets.all(8),
               child: DietButton(
                 text: 'Ir para o Almoço',
-                action: () => Get.toNamed(RoutesApplication.lunch),
+                isEnable: controller.brunch.isNotEmpty,
+                action: () => controller.brunch.isEmpty
+                    ? null
+                    : Get.toNamed(RoutesApplication.brunch),
               ),
             ),
           ),

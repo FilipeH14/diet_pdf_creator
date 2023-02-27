@@ -33,6 +33,7 @@ class PersonalDataPage extends GetView<PersonalDataController> {
                   Center(
                     child: DietButton(
                       text: 'Montar dieta',
+                      isEnable: true,
                       action: () => controller.goToBreakfast(),
                     ),
                   ),

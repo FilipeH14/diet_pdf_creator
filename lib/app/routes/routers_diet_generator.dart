@@ -24,8 +24,8 @@ import 'package:diet_pdf_creator/app/modules/diet_generator/7_dinnner/dinner_bin
 import 'package:diet_pdf_creator/app/modules/diet_generator/7_dinnner/dinner_page.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/7_dinnner/widgets/meal_dinner/meal_dinner_binding.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/7_dinnner/widgets/meal_dinner/meal_dinner_page.dart';
-import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_binding.dart';
-import 'package:diet_pdf_creator/app/modules/diet_generator/end_document/end_document_page.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/8_end_document/end_document_binding.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/8_end_document/end_document_page.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

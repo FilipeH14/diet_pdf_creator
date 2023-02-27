@@ -57,6 +57,7 @@ class MealLunchPage extends GetView<MealLunchController> {
                   width: Get.width,
                   child: DietButton(
                     text: 'Concluir',
+                    isEnable: true,
                     action: () => controller.saveMealLunch(),
                   ),
                 ),
