@@ -15,63 +15,53 @@ class AfterTrainingPage extends GetView<AfterTrainingController> {
       appBar: DietAppBar(dietTitle: 'Pós treino'),
       body: Column(
         children: [
-          const StepDiet(currentStep: 6, amountStep: 7),
+          const Expanded(
+            flex: 1,
+            child: StepDiet(currentStep: 6, amountStep: 7),
+          ),
           Expanded(
+            flex: 8,
             child: Obx(
               () => Visibility(
                 visible: controller.afterTraining.isNotEmpty,
                 replacement: const Center(
-                  child: Text('Montar pós treino!!!'),
+                  child: Text('Montar a Colação'),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
+                child: Obx(() => ListView.separated(
+                      itemCount: controller.afterTraining.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => Padding(
                         padding: const EdgeInsets.all(8),
-                        child: Text(
-                          'Dieta do pós treino!!',
-                          style: TextStyle(
-                            color: Colors.grey[400],
-                            fontSize: 25,
-                          ),
+                        child: Wrap(
+                          children: controller.afterTraining[index]
+                              .map((value) => IntrinsicWidth(
+                                    child: Card(
+                                      child: Row(
+                                        children: [
+                                          Text('${value.option}, '),
+                                          Text('${value.amount}, '),
+                                          Text('${value.grammage} '),
+                                        ],
+                                      ),
+                                    ),
+                                  ))
+                              .toList(),
                         ),
                       ),
-                      Container(
-                        color: Colors.white,
-                        child: Obx(() => ListView.separated(
-                              itemCount: controller.afterTraining.length,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Wrap(
-                                  children: controller.afterTraining[index]
-                                      .map((value) => IntrinsicWidth(
-                                            child: Card(
-                                              child: Row(
-                                                children: [
-                                                  Text('${value.option}, '),
-                                                  Text('${value.amount}, '),
-                                                  Text('${value.grammage} '),
-                                                ],
-                                              ),
-                                            ),
-                                          ))
-                                      .toList(),
-                                ),
-                              ),
-                              separatorBuilder: (context, index) => Divider(
-                                color: Colors.grey[400],
-                              ),
-                            )),
+                      separatorBuilder: (context, index) => Divider(
+                        color: Colors.grey[400],
                       ),
-                      DietButton(
-                        text: 'Ir para janta',
-                        action: () => Get.toNamed(RoutesApplication.dinner),
-                      ),
-                    ],
-                  ),
-                ),
+                    )),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: DietButton(
+                text: 'Ir para o jantar',
+                action: () => Get.toNamed(RoutesApplication.dinner),
               ),
             ),
           ),

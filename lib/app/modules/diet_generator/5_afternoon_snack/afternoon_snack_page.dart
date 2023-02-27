@@ -15,64 +15,53 @@ class AfternoonSnackPage extends GetView<AfternoonSnackController> {
       appBar: DietAppBar(dietTitle: 'Lanche da tarde'),
       body: Column(
         children: [
-          const StepDiet(currentStep: 5, amountStep: 7),
+          const Expanded(
+            flex: 1,
+            child: StepDiet(currentStep: 5, amountStep: 7),
+          ),
           Expanded(
+            flex: 8,
             child: Obx(
               () => Visibility(
                 visible: controller.afternoonSnack.isNotEmpty,
                 replacement: const Center(
-                  child: Text('Montar lanche da tarde!!!'),
+                  child: Text('Montar o lanche da tarde'),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
+                child: Obx(() => ListView.separated(
+                      itemCount: controller.afternoonSnack.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => Padding(
                         padding: const EdgeInsets.all(8),
-                        child: Text(
-                          'Dieta do lanche da tarde!!',
-                          style: TextStyle(
-                            color: Colors.grey[400],
-                            fontSize: 25,
-                          ),
+                        child: Wrap(
+                          children: controller.afternoonSnack[index]
+                              .map((value) => IntrinsicWidth(
+                                    child: Card(
+                                      child: Row(
+                                        children: [
+                                          Text('${value.option}, '),
+                                          Text('${value.amount}, '),
+                                          Text('${value.grammage} '),
+                                        ],
+                                      ),
+                                    ),
+                                  ))
+                              .toList(),
                         ),
                       ),
-                      Container(
-                        color: Colors.white,
-                        child: Obx(() => ListView.separated(
-                              itemCount: controller.afternoonSnack.length,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Wrap(
-                                  children: controller.afternoonSnack[index]
-                                      .map((value) => IntrinsicWidth(
-                                            child: Card(
-                                              child: Row(
-                                                children: [
-                                                  Text('${value.option}, '),
-                                                  Text('${value.amount}, '),
-                                                  Text('${value.grammage} '),
-                                                ],
-                                              ),
-                                            ),
-                                          ))
-                                      .toList(),
-                                ),
-                              ),
-                              separatorBuilder: (context, index) => Divider(
-                                color: Colors.grey[400],
-                              ),
-                            )),
+                      separatorBuilder: (context, index) => Divider(
+                        color: Colors.grey[400],
                       ),
-                      DietButton(
-                        text: 'Ir para pós treino',
-                        action: () =>
-                            Get.toNamed(RoutesApplication.afterTraining),
-                      ),
-                    ],
-                  ),
-                ),
+                    )),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: DietButton(
+                text: 'Ir para o pós treino',
+                action: () => Get.toNamed(RoutesApplication.afterTraining),
               ),
             ),
           ),

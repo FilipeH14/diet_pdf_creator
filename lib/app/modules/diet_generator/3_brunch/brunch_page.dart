@@ -16,63 +16,53 @@ class BrunchPage extends GetView<BrunchController> {
       appBar: DietAppBar(dietTitle: 'Colação'),
       body: Column(
         children: [
-          const StepDiet(currentStep: 3, amountStep: 7),
+          const Expanded(
+            flex: 1,
+            child: StepDiet(currentStep: 2, amountStep: 7),
+          ),
           Expanded(
+            flex: 8,
             child: Obx(
               () => Visibility(
                 visible: controller.brunch.isNotEmpty,
                 replacement: const Center(
-                  child: Text('Montar colação!!!'),
+                  child: Text('Montar a Colação'),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
+                child: Obx(() => ListView.separated(
+                      itemCount: controller.brunch.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => Padding(
                         padding: const EdgeInsets.all(8),
-                        child: Text(
-                          'Dieta da colação!!',
-                          style: TextStyle(
-                            color: Colors.grey[400],
-                            fontSize: 25,
-                          ),
+                        child: Wrap(
+                          children: controller.brunch[index]
+                              .map((value) => IntrinsicWidth(
+                                    child: Card(
+                                      child: Row(
+                                        children: [
+                                          Text('${value.option}, '),
+                                          Text('${value.amount}, '),
+                                          Text('${value.grammage} '),
+                                        ],
+                                      ),
+                                    ),
+                                  ))
+                              .toList(),
                         ),
                       ),
-                      Container(
-                        color: Colors.white,
-                        child: Obx(() => ListView.separated(
-                              itemCount: controller.brunch.length,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Wrap(
-                                  children: controller.brunch[index]
-                                      .map((value) => IntrinsicWidth(
-                                            child: Card(
-                                              child: Row(
-                                                children: [
-                                                  Text('${value.option}, '),
-                                                  Text('${value.amount}, '),
-                                                  Text('${value.grammage} '),
-                                                ],
-                                              ),
-                                            ),
-                                          ))
-                                      .toList(),
-                                ),
-                              ),
-                              separatorBuilder: (context, index) => Divider(
-                                color: Colors.grey[400],
-                              ),
-                            )),
+                      separatorBuilder: (context, index) => Divider(
+                        color: Colors.grey[400],
                       ),
-                      DietButton(
-                        text: 'Ir para almoço',
-                        action: () => Get.toNamed(RoutesApplication.lunch),
-                      ),
-                    ],
-                  ),
-                ),
+                    )),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: DietButton(
+                text: 'Ir para o Almoço',
+                action: () => Get.toNamed(RoutesApplication.lunch),
               ),
             ),
           ),
