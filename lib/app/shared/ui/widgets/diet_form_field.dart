@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class DietFormField extends StatefulWidget {
   final String placeholder;
   final TextEditingController? controller;
+  final FormFieldValidator<String>? validator;
 
   const DietFormField({
     required this.placeholder,
-    required this.controller,
+    this.controller,
+    this.validator,
     Key? key,
   }) : super(key: key);
 
@@ -41,6 +43,7 @@ class _DietFormFieldState extends State<DietFormField> {
       child: TextFormField(
         focusNode: _focusNode,
         controller: widget.controller,
+        validator: widget.validator,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 10,

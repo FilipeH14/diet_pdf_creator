@@ -3,6 +3,7 @@ import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:validatorless/validatorless.dart';
 
 class MealBreakfastPage extends GetView<MealBreakfastController> {
   const MealBreakfastPage({Key? key}) : super(key: key);
@@ -41,16 +42,19 @@ class MealBreakfastPage extends GetView<MealBreakfastController> {
                 DietFormField(
                   placeholder: 'opção',
                   controller: controller.optionEC,
+                  validator: Validatorless.required('Digite um valor'),
                 ),
                 const SizedBox(height: 10),
                 DietFormField(
                   placeholder: 'quantidade',
                   controller: controller.amountEC,
+                  validator: Validatorless.required('Digite um valor'),
                 ),
                 const SizedBox(height: 10),
                 DietFormField(
                   placeholder: 'peso',
                   controller: controller.grammageEC,
+                  validator: Validatorless.required('Digite um valor'),
                 ),
                 const SizedBox(height: 20),
                 SizedBox(
