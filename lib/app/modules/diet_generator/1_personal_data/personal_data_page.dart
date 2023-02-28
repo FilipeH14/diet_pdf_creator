@@ -6,6 +6,7 @@ import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:validatorless/validatorless.dart';
 
 class PersonalDataPage extends GetView<PersonalDataController> {
   const PersonalDataPage({Key? key}) : super(key: key);
@@ -14,34 +15,41 @@ class PersonalDataPage extends GetView<PersonalDataController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DietAppBar(dietTitle: 'Infomações pessoais'),
-      body: Column(
-        children: [
-          const StepDiet(currentStep: 1, amountStep: 7),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const StepDiet(currentStep: 1, amountStep: 7),
+            Padding(
               padding: const EdgeInsets.all(8),
-              child: Column(
-                children: [
-                  DietFormField(
-                    placeholder: 'Nome',
-                    controller: controller.nameEC,
-                  ),
-                  DietFormField(
-                    placeholder: 'Data',
-                    controller: controller.dateEc,
-                  ),
-                  Center(
-                    child: DietButton(
-                      text: 'Montar dieta',
-                      isEnable: true,
-                      action: () => controller.goToBreakfast(),
+              child: Form(
+                key: controller.formKey,
+                child: Column(
+                  children: [
+                    DietFormField(
+                      placeholder: 'Nome',
+                      controller: controller.nameEC,
+                      validator: Validatorless.required('Digite o nome'),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 10),
+                    DietFormField(
+                      placeholder: 'Data',
+                      controller: controller.dateEc,
+                      validator: Validatorless.required('Digite a data atual'),
+                    ),
+                    const SizedBox(height: 20),
+                    Center(
+                      child: DietButton(
+                        text: 'Montar dieta',
+                        isEnable: true,
+                        action: () => controller.goToBreakfast(),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

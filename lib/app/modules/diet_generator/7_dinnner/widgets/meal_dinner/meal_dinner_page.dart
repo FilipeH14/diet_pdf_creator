@@ -1,9 +1,9 @@
+import 'package:diet_pdf_creator/app/modules/diet_generator/7_dinnner/widgets/meal_dinner/meal_dinner_controller.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_button.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_form_field.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
-import './meal_dinner_controller.dart';
 
 class MealDinnerPage extends GetView<MealDinnerController> {
   const MealDinnerPage({Key? key}) : super(key: key);

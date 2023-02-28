@@ -15,7 +15,7 @@ class MealAfternoonSnackController extends GetxController {
 
   var mealAfternoonSnackController = [];
 
-  var mealAfternoonSnackControllerMeal = <String, Meal>{};
+  var mealAfternoonSnackMeal = <String, Meal>{};
 
   late Meal mealAfternoonSnackControllerDiet;
 
@@ -30,12 +30,12 @@ class MealAfternoonSnackController extends GetxController {
       grammage: grammageEC.text,
     );
 
-    mealAfternoonSnackControllerMeal.addEntries({
+    mealAfternoonSnackMeal.addEntries({
       'meal${indexMealAfternoonSnackController.toString()}':
           mealAfternoonSnackControllerDiet,
     }.entries);
 
-    log('$mealAfternoonSnackControllerMeal');
+    log('$mealAfternoonSnackMeal');
 
     log('$mealAfternoonSnackController');
 
@@ -46,5 +46,11 @@ class MealAfternoonSnackController extends GetxController {
     indexMealAfternoonSnackController++;
   }
 
-  void saveAfternoonSnack() => Get.back(result: mealAfternoonSnackControllerMeal);
+  void saveAfternoonSnack() {
+    final valid = formKey.currentState?.validate() ?? false;
+
+    if (valid || mealAfternoonSnackMeal.isNotEmpty) {
+      Get.back(result: mealAfternoonSnackMeal);
+    }
+  }
 }

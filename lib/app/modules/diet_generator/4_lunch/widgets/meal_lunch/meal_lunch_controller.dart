@@ -24,7 +24,7 @@ class MealLunchController extends GetxController {
   void insertValues() {
     formKey.currentState?.save();
 
-  lunchDiet = Meal(
+    lunchDiet = Meal(
       option: optionEC.text,
       amount: amountEC.text,
       grammage: grammageEC.text,
@@ -45,5 +45,9 @@ class MealLunchController extends GetxController {
     indexLunch++;
   }
 
-  void saveMealLunch() => Get.back(result: lunchMeal);
+  void saveMealLunch() {
+    final valid = formKey.currentState?.validate() ?? false;
+
+    if (valid || lunchMeal.isNotEmpty) Get.back(result: lunchMeal);
+  }
 }

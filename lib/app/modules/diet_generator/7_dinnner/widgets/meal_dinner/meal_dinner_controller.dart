@@ -39,5 +39,9 @@ class MealDinnerController extends GetxController {
     indexDinner++;
   }
 
-  void saveMealDinner() => Get.back(result: dinnerMeal);
+  void saveMealDinner() {
+    final valid = formKey.currentState?.validate() ?? false;
+
+    if (valid || dinnerMeal.isNotEmpty) Get.back(result: dinnerMeal);
+  }
 }

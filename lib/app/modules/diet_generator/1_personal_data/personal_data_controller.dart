@@ -12,11 +12,13 @@ class PersonalDataController extends GetxController {
   late PersonalData personalData;
 
   void goToBreakfast() {
+    final valid = formKey.currentState?.validate() ?? false;
+
     personalData = PersonalData(
       name: nameEC.text,
       date: dateEc.text,
     );
 
-    Get.toNamed(RoutesApplication.breakfast);
+    if (valid) Get.toNamed(RoutesApplication.breakfast);
   }
 }

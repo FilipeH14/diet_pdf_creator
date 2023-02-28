@@ -1,7 +1,6 @@
-import 'package:diet_pdf_creator/app/shared/ui/diet_ui_colors.dart';
 import 'package:flutter/material.dart';
 
-class DietFormField extends StatefulWidget {
+class DietFormField extends StatelessWidget {
   final String placeholder;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
@@ -14,49 +13,29 @@ class DietFormField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<DietFormField> createState() => _DietFormFieldState();
-}
-
-class _DietFormFieldState extends State<DietFormField> {
-  final FocusNode _focusNode = FocusNode();
-
-  Color _borderColor = Colors.grey;
-
-  @override
-  void initState() {
-    _focusNode.addListener(() {
-      setState(() {
-        _borderColor = _focusNode.hasFocus ? DietUiColors.i.primary : Colors.grey;
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      // margin: const EdgeInsets.all(8),
-      margin: const EdgeInsets.symmetric(vertical: 2),
-      decoration: BoxDecoration(
-        border: Border.all(color: _borderColor),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: TextFormField(
-        focusNode: _focusNode,
-        controller: widget.controller,
-        validator: widget.validator,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 15,
-          ),
-          isDense: true,
-          border: InputBorder.none,
-          labelText: widget.placeholder,
-          labelStyle: TextStyle(
-            height: 0.5,
-            color: _borderColor,
-          ),
+    return TextFormField(
+      controller: controller,
+      validator: validator,
+      decoration: InputDecoration(
+        isDense: true,
+        labelText: placeholder,
+        labelStyle: const TextStyle(color: Colors.black),
+        errorStyle: const TextStyle(color: Colors.redAccent),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(23),
+          borderSide: BorderSide(color: Colors.grey[400]!),
         ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(23),
+          borderSide: BorderSide(color: Colors.grey[400]!),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(23),
+          borderSide: BorderSide(color: Colors.grey[400]!),
+        ),
+        filled: true,
+        fillColor: Colors.white,
       ),
     );
   }

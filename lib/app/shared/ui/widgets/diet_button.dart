@@ -18,6 +18,7 @@ class DietButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: action,
       style: ElevatedButton.styleFrom(
+        shape: const StadiumBorder(),
         backgroundColor:
             isEnable ? DietUiColors.i.rightGreen : Colors.grey[400],
       ),
