@@ -21,6 +21,14 @@ class MealBreakfastController extends GetxController {
 
   int indexBreakfast = 1;
 
+  @override
+  void onClose() {
+    optionEC.dispose();
+    amountEC.dispose();
+    grammageEC.dispose();
+    super.onClose();
+  }
+
   void insertValues() {
     formKey.currentState?.save();
 

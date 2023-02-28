@@ -11,39 +11,47 @@ class MealAfternoonSnackController extends GetxController {
   final amountEC = TextEditingController();
   final grammageEC = TextEditingController();
 
-  var mealAfternoonSnackControllerValues = <String, dynamic>{}.obs;
+  var mealAfternoonSnackValues = <String, dynamic>{}.obs;
 
-  var mealAfternoonSnackController = [];
+  var mealAfternoonSnack = [];
 
   var mealAfternoonSnackMeal = <String, Meal>{};
 
-  late Meal mealAfternoonSnackControllerDiet;
+  late Meal mealAfternoonSnackDiet;
 
-  int indexMealAfternoonSnackController = 1;
+  int indexMealAfternoonSnack = 1;
+
+  @override
+  void onClose() {
+    optionEC.dispose();
+    amountEC.dispose();
+    grammageEC.dispose();
+    super.onClose();
+  }
 
   void insertValues() {
     formKey.currentState?.save();
 
-    mealAfternoonSnackControllerDiet = Meal(
+    mealAfternoonSnackDiet = Meal(
       option: optionEC.text,
       amount: amountEC.text,
       grammage: grammageEC.text,
     );
 
     mealAfternoonSnackMeal.addEntries({
-      'meal${indexMealAfternoonSnackController.toString()}':
-          mealAfternoonSnackControllerDiet,
+      'meal${indexMealAfternoonSnack.toString()}':
+          mealAfternoonSnackDiet,
     }.entries);
 
     log('$mealAfternoonSnackMeal');
 
-    log('$mealAfternoonSnackController');
+    log('$mealAfternoonSnack');
 
     optionEC.clear();
     amountEC.clear();
     grammageEC.clear();
 
-    indexMealAfternoonSnackController++;
+    indexMealAfternoonSnack++;
   }
 
   void saveAfternoonSnack() {

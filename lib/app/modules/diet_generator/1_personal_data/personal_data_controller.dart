@@ -11,6 +11,13 @@ class PersonalDataController extends GetxController {
 
   late PersonalData personalData;
 
+  @override
+  void onClose() {
+    nameEC.dispose();
+    dateEc.dispose();
+    super.onClose();
+  }
+
   void goToBreakfast() {
     final valid = formKey.currentState?.validate() ?? false;
 
