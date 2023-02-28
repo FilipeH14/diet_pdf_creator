@@ -56,194 +56,339 @@ class EndDocumentController extends GetxController {
 
     pdf.addPage(pdfLib.MultiPage(
       build: (context) => [
-        pdfLib.Text('Desjejum: '),
+        pdfLib.Text(
+          'Desjejum: ',
+          style: const pdfLib.TextStyle(fontSize: 30),
+        ),
         pdfLib.Column(
           children: breakfast.asMap().entries.map(
             (entry) {
               int index = entry.key;
 
-              return pdfLib.Padding(
-                padding: const pdfLib.EdgeInsets.all(8),
-                child: pdfLib.Row(
-                  children: breakfast[index]
-                      .map((element) => pdfLib.Container(
-                            padding: const pdfLib.EdgeInsets.all(8),
-                            decoration: pdfLib.BoxDecoration(
-                              border: pdfLib.Border.all(width: 1),
-                              borderRadius: pdfLib.BorderRadius.circular(12),
-                            ),
-                            child: pdfLib.Row(
-                              children: [
-                                pdfLib.Text('${element.option}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.amount}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.grammage}'),
-                              ],
-                            ),
-                          ))
-                      .toList(),
-                ),
+              return pdfLib.Row(
+                children: [
+                  pdfLib.Text(
+                    '*',
+                    style: const pdfLib.TextStyle(fontSize: 35),
+                  ),
+                  pdfLib.Padding(
+                    padding: const pdfLib.EdgeInsets.all(8),
+                    child: pdfLib.Row(
+                      children: breakfast[index]
+                          .map((element) => pdfLib.Container(
+                                padding: const pdfLib.EdgeInsets.all(8),
+                                decoration: pdfLib.BoxDecoration(
+                                  border: pdfLib.Border.all(width: 1),
+                                  borderRadius:
+                                      pdfLib.BorderRadius.circular(12),
+                                ),
+                                child: pdfLib.Row(
+                                  children: [
+                                    pdfLib.Text(
+                                      '${element.option}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.amount}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.grammage}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                ],
               );
             },
           ).toList(),
         ),
-        pdfLib.Text('Colação: '),
+        pdfLib.Text(
+          'Colação: ',
+          style: const pdfLib.TextStyle(fontSize: 30),
+        ),
         pdfLib.Column(
           children: brunch.asMap().entries.map(
             (entry) {
               int index = entry.key;
 
-              return pdfLib.Padding(
-                padding: const pdfLib.EdgeInsets.all(8),
-                child: pdfLib.Row(
-                  children: brunch[index]
-                      .map((element) => pdfLib.Container(
-                            padding: const pdfLib.EdgeInsets.all(8),
-                            decoration: pdfLib.BoxDecoration(
-                              border: pdfLib.Border.all(width: 1),
-                              borderRadius: pdfLib.BorderRadius.circular(12),
-                            ),
-                            child: pdfLib.Row(
-                              children: [
-                                pdfLib.Text('${element.option}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.amount}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.grammage}'),
-                              ],
-                            ),
-                          ))
-                      .toList(),
-                ),
+              return pdfLib.Row(
+                children: [
+                  pdfLib.Text(
+                    '*',
+                    style: const pdfLib.TextStyle(fontSize: 35),
+                  ),
+                  pdfLib.Padding(
+                    padding: const pdfLib.EdgeInsets.all(8),
+                    child: pdfLib.Row(
+                      children: brunch[index]
+                          .map((element) => pdfLib.Container(
+                                padding: const pdfLib.EdgeInsets.all(8),
+                                decoration: pdfLib.BoxDecoration(
+                                  border: pdfLib.Border.all(width: 1),
+                                  borderRadius:
+                                      pdfLib.BorderRadius.circular(12),
+                                ),
+                                child: pdfLib.Row(
+                                  children: [
+                                    pdfLib.Text(
+                                      '${element.option}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.amount}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.grammage}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                ],
               );
             },
           ).toList(),
         ),
-        pdfLib.Text('Almoço: '),
+        pdfLib.Text(
+          'Almoço: ',
+          style: const pdfLib.TextStyle(fontSize: 30),
+        ),
         pdfLib.Column(
           children: lunch.asMap().entries.map(
             (entry) {
               int index = entry.key;
 
-              return pdfLib.Padding(
-                padding: const pdfLib.EdgeInsets.all(8),
-                child: pdfLib.Row(
-                  children: lunch[index]
-                      .map((element) => pdfLib.Container(
-                            padding: const pdfLib.EdgeInsets.all(8),
-                            decoration: pdfLib.BoxDecoration(
-                              border: pdfLib.Border.all(width: 1),
-                              borderRadius: pdfLib.BorderRadius.circular(12),
-                            ),
-                            child: pdfLib.Row(
-                              children: [
-                                pdfLib.Text('${element.option}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.amount}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.grammage}'),
-                              ],
-                            ),
-                          ))
-                      .toList(),
-                ),
+              return pdfLib.Row(
+                children: [
+                  pdfLib.Text(
+                    '*',
+                    style: const pdfLib.TextStyle(fontSize: 35),
+                  ),
+                  pdfLib.Padding(
+                    padding: const pdfLib.EdgeInsets.all(8),
+                    child: pdfLib.Row(
+                      children: lunch[index]
+                          .map((element) => pdfLib.Container(
+                                padding: const pdfLib.EdgeInsets.all(8),
+                                decoration: pdfLib.BoxDecoration(
+                                  border: pdfLib.Border.all(width: 1),
+                                  borderRadius:
+                                      pdfLib.BorderRadius.circular(12),
+                                ),
+                                child: pdfLib.Row(
+                                  children: [
+                                    pdfLib.Text(
+                                      '${element.option}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.amount}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.grammage}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                ],
               );
+              ;
             },
           ).toList(),
         ),
-        pdfLib.Text('Lanche da tarde: '),
+        pdfLib.Text(
+          'Lanche da tarde: ',
+          style: const pdfLib.TextStyle(fontSize: 30),
+        ),
         pdfLib.Column(
           children: afternoonSnack.asMap().entries.map(
             (entry) {
               int index = entry.key;
 
-              return pdfLib.Padding(
-                padding: const pdfLib.EdgeInsets.all(8),
-                child: pdfLib.Row(
-                  children: afternoonSnack[index]
-                      .map((element) => pdfLib.Container(
-                            padding: const pdfLib.EdgeInsets.all(8),
-                            decoration: pdfLib.BoxDecoration(
-                              border: pdfLib.Border.all(width: 1),
-                              borderRadius: pdfLib.BorderRadius.circular(12),
-                            ),
-                            child: pdfLib.Row(
-                              children: [
-                                pdfLib.Text('${element.option}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.amount}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.grammage}'),
-                              ],
-                            ),
-                          ))
-                      .toList(),
-                ),
+              return pdfLib.Row(
+                children: [
+                  pdfLib.Text(
+                    '*',
+                    style: const pdfLib.TextStyle(fontSize: 35),
+                  ),
+                  pdfLib.Padding(
+                    padding: const pdfLib.EdgeInsets.all(8),
+                    child: pdfLib.Row(
+                      children: afternoonSnack[index]
+                          .map((element) => pdfLib.Container(
+                                padding: const pdfLib.EdgeInsets.all(8),
+                                decoration: pdfLib.BoxDecoration(
+                                  border: pdfLib.Border.all(width: 1),
+                                  borderRadius:
+                                      pdfLib.BorderRadius.circular(12),
+                                ),
+                                child: pdfLib.Row(
+                                  children: [
+                                    pdfLib.Text(
+                                      '${element.option}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.amount}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.grammage}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                ],
               );
             },
           ).toList(),
         ),
-        pdfLib.Text('Pós treino: '),
+        pdfLib.Text(
+          'Pós treino: ',
+          style: const pdfLib.TextStyle(fontSize: 30),
+        ),
         pdfLib.Column(
           children: afterTraininng.asMap().entries.map(
             (entry) {
               int index = entry.key;
 
-              return pdfLib.Padding(
-                padding: const pdfLib.EdgeInsets.all(8),
-                child: pdfLib.Row(
-                  children: afterTraininng[index]
-                      .map((element) => pdfLib.Container(
-                            padding: const pdfLib.EdgeInsets.all(8),
-                            decoration: pdfLib.BoxDecoration(
-                              border: pdfLib.Border.all(width: 1),
-                              borderRadius: pdfLib.BorderRadius.circular(12),
-                            ),
-                            child: pdfLib.Row(
-                              children: [
-                                pdfLib.Text('${element.option}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.amount}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.grammage}'),
-                              ],
-                            ),
-                          ))
-                      .toList(),
-                ),
+              return pdfLib.Row(
+                children: [
+                  pdfLib.Text(
+                    '*',
+                    style: const pdfLib.TextStyle(fontSize: 35),
+                  ),
+                  pdfLib.Padding(
+                    padding: const pdfLib.EdgeInsets.all(8),
+                    child: pdfLib.Row(
+                      children: afterTraininng[index]
+                          .map((element) => pdfLib.Container(
+                                padding: const pdfLib.EdgeInsets.all(8),
+                                decoration: pdfLib.BoxDecoration(
+                                  border: pdfLib.Border.all(width: 1),
+                                  borderRadius:
+                                      pdfLib.BorderRadius.circular(12),
+                                ),
+                                child: pdfLib.Row(
+                                  children: [
+                                    pdfLib.Text(
+                                      '${element.option}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.amount}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.grammage}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                ],
               );
             },
           ).toList(),
         ),
-        pdfLib.Text('Jantar: '),
+        pdfLib.Text(
+          'Jantar: ',
+          style: const pdfLib.TextStyle(fontSize: 30),
+        ),
         pdfLib.Column(
           children: dinner.asMap().entries.map(
             (entry) {
               int index = entry.key;
 
-              return pdfLib.Padding(
-                padding: const pdfLib.EdgeInsets.all(8),
-                child: pdfLib.Row(
-                  children: dinner[index]
-                      .map((element) => pdfLib.Container(
-                            padding: const pdfLib.EdgeInsets.all(8),
-                            decoration: pdfLib.BoxDecoration(
-                              border: pdfLib.Border.all(width: 1),
-                              borderRadius: pdfLib.BorderRadius.circular(12),
-                            ),
-                            child: pdfLib.Row(
-                              children: [
-                                pdfLib.Text('${element.option}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.amount}'),
-                                pdfLib.SizedBox(width: 10),
-                                pdfLib.Text('${element.grammage}'),
-                              ],
-                            ),
-                          ))
-                      .toList(),
-                ),
+              return pdfLib.Row(
+                children: [
+                  pdfLib.Text(
+                    '*',
+                    style: const pdfLib.TextStyle(fontSize: 35),
+                  ),
+                  pdfLib.Padding(
+                    padding: const pdfLib.EdgeInsets.all(8),
+                    child: pdfLib.Row(
+                      children: dinner[index]
+                          .map((element) => pdfLib.Container(
+                                padding: const pdfLib.EdgeInsets.all(8),
+                                decoration: pdfLib.BoxDecoration(
+                                  border: pdfLib.Border.all(width: 1),
+                                  borderRadius:
+                                      pdfLib.BorderRadius.circular(12),
+                                ),
+                                child: pdfLib.Row(
+                                  children: [
+                                    pdfLib.Text(
+                                      '${element.option}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.amount}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                    pdfLib.SizedBox(width: 10),
+                                    pdfLib.Text(
+                                      '${element.grammage}',
+                                      style:
+                                          const pdfLib.TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                ],
               );
             },
           ).toList(),
