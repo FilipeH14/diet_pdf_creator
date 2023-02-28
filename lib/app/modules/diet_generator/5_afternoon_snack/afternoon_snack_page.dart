@@ -59,13 +59,13 @@ class AfternoonSnackPage extends GetView<AfternoonSnackController> {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(8),
-              child: DietButton(
-                text: 'Ir para o pós treino',
-                isEnable: controller.afternoonSnack.isNotEmpty,
-                action: () => controller.afternoonSnack.isEmpty
-                    ? null
-                    : Get.toNamed(RoutesApplication.brunch),
-              ),
+              child: Obx(() => DietButton(
+                    text: 'Ir para o pós treino',
+                    isEnable: controller.afternoonSnack.isNotEmpty,
+                    action: () => controller.afternoonSnack.isEmpty
+                        ? null
+                        : Get.toNamed(RoutesApplication.afterTraining),
+                  )),
             ),
           ),
         ],

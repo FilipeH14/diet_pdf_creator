@@ -59,13 +59,13 @@ class DinnerPage extends GetView<DinnerController> {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(8),
-              child: DietButton(
-                text: 'Finalizar dieta',
-                isEnable: controller.dinner.isNotEmpty,
-                action: () => controller.dinner.isEmpty
-                    ? null
-                    : Get.toNamed(RoutesApplication.brunch),
-              ),
+              child: Obx(() => DietButton(
+                    text: 'Finalizar dieta',
+                    isEnable: controller.dinner.isNotEmpty,
+                    action: () => controller.dinner.isEmpty
+                        ? null
+                        : Get.toNamed(RoutesApplication.endDocument),
+                  )),
             ),
           ),
         ],

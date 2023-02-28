@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BrunchPage extends GetView<BrunchController> {
-
   const BrunchPage({Key? key}) : super(key: key);
 
   @override
@@ -60,13 +59,13 @@ class BrunchPage extends GetView<BrunchController> {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(8),
-              child: DietButton(
-                text: 'Ir para o Almoço',
-                isEnable: controller.brunch.isNotEmpty,
-                action: () => controller.brunch.isEmpty
-                    ? null
-                    : Get.toNamed(RoutesApplication.brunch),
-              ),
+              child: Obx(() => DietButton(
+                    text: 'Ir para o Almoço',
+                    isEnable: controller.brunch.isNotEmpty,
+                    action: () => controller.brunch.isEmpty
+                        ? null
+                        : Get.toNamed(RoutesApplication.lunch),
+                  )),
             ),
           ),
         ],

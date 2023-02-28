@@ -59,13 +59,13 @@ class BreakfastPage extends GetView<BreakfastController> {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(8),
-              child: DietButton(
-                text: 'Ir para colação',
-                isEnable: controller.breakfast.isNotEmpty,
-                action: () => controller.breakfast.isEmpty
-                    ? null
-                    : Get.toNamed(RoutesApplication.brunch),
-              ),
+              child: Obx(() => DietButton(
+                    text: 'Ir para colação',
+                    isEnable: controller.breakfast.isNotEmpty,
+                    action: () => controller.breakfast.isEmpty
+                        ? null
+                        : Get.toNamed(RoutesApplication.brunch),
+                  )),
             ),
           ),
         ],

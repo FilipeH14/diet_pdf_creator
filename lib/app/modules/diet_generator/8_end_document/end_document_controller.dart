@@ -48,18 +48,6 @@ class EndDocumentController extends GetxController {
 
     dinner = getDinner.dinner;
 
-    log('$breakfast');
-
-    log('$brunch');
-
-    log('$lunch');
-
-    log('$afternoonSnack');
-
-    log('$afterTraininng');
-
-    log('$dinner');
-
     super.onInit();
   }
 
