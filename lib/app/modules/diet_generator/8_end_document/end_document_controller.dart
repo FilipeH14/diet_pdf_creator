@@ -13,12 +13,12 @@ import 'package:diet_pdf_creator/app/modules/diet_generator/8_end_document/widge
 import 'package:diet_pdf_creator/app/modules/pdf_screen/pdf_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:pdf/pdf.dart';
 
 import 'package:pdf/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 
 class EndDocumentController extends GetxController {
-
   final getPersonalData = Get.find<PersonalDataController>();
   late PersonalData personalData;
 
@@ -42,7 +42,6 @@ class EndDocumentController extends GetxController {
 
   @override
   void onInit() {
-
     personalData = PersonalData(
       name: getPersonalData.personalData.name,
       date: getPersonalData.personalData.date,
@@ -70,8 +69,47 @@ class EndDocumentController extends GetxController {
         await rootBundle.load('assets/fonts/mplus1/MPLUS1p-Regular.ttf'));
 
     pdf.addPage(MultiPage(
+      pageFormat: PdfPageFormat.a4,
       build: (context) => [
-        PdfComponents.headerPdf(name: personalData.name, date: personalData.date),
+        PdfComponents.headerPdf(
+          name: personalData.name,
+          date: personalData.date,
+        ),
+        Text(
+          'Desjejum: ',
+          style: const TextStyle(fontSize: 30),
+        ),
+        PdfComponents.listMealPdf(meal: breakfast),
+        SizedBox(height: 20),
+        Text(
+          'Colação: ',
+          style: const TextStyle(fontSize: 30),
+        ),
+        PdfComponents.listMealPdf(meal: brunch),
+        SizedBox(height: 20),
+        Text(
+          'Almoço: ',
+          style: const TextStyle(fontSize: 30),
+        ),
+        PdfComponents.listMealPdf(meal: lunch),
+        SizedBox(height: 20),
+        Text(
+          'Lanche da tarde: ',
+          style: const TextStyle(fontSize: 30),
+        ),
+        PdfComponents.listMealPdf(meal: afternoonSnack),
+        SizedBox(height: 20),
+        Text(
+          'Pós treino: ',
+          style: const TextStyle(fontSize: 30),
+        ),
+        PdfComponents.listMealPdf(meal: afterTraininng),
+        SizedBox(height: 20),
+        Text(
+          'Jantar: ',
+          style: const TextStyle(fontSize: 30),
+        ),
+        PdfComponents.listMealPdf(meal: dinner),
       ],
     ));
 
