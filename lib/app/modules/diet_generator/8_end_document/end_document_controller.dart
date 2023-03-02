@@ -65,12 +65,24 @@ class EndDocumentController extends GetxController {
   Future<void> generatePdf() async {
     final pdf = Document();
 
+    final image =
+        (await rootBundle.load('assets/images/logo.png')).buffer.asUint8List();
+
     final mplus1 = Font.ttf(
         await rootBundle.load('assets/fonts/mplus1/MPLUS1p-Regular.ttf'));
 
     pdf.addPage(MultiPage(
       pageFormat: PdfPageFormat.a4,
       build: (context) => [
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Image(
+            MemoryImage(image),
+            width: 360,
+            height: 150,
+            fit: BoxFit.cover,
+          ),
+        ),
         PdfComponents.headerPdf(
           name: personalData.name,
           date: personalData.date,
