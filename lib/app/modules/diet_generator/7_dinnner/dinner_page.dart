@@ -25,7 +25,7 @@ class DinnerPage extends GetView<DinnerController> {
               () => Visibility(
                 visible: controller.dinner.isNotEmpty,
                 replacement: const Center(
-                  child: Text('Montar a Colação'),
+                  child: Text('Montar o jantar'),
                 ),
                 child: Obx(() => ListView.separated(
                       itemCount: controller.dinner.length,

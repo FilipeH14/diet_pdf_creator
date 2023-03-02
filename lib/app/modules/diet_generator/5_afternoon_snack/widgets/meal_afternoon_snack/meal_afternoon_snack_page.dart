@@ -37,7 +37,7 @@ class MealAfternoonSnackPage extends GetView<MealAfternoonSnackController> {
             key: controller.formKey,
             child: Column(
               children: [
-                const Text('Opções para desjejum'),
+                const Text('Opções para lanche da tarde'),
                 const SizedBox(height: 20),
                 DietFormField(
                   placeholder: 'opção',

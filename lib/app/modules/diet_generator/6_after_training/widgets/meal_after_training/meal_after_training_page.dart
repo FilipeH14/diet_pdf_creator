@@ -37,7 +37,7 @@ class MealAfterTrainingPage extends GetView<MealAfterTrainingController> {
             key: controller.formKey,
             child: Column(
               children: [
-                const Text('Opções para desjejum'),
+                const Text('Opções para pós treino'),
                 const SizedBox(height: 20),
                 DietFormField(
                   placeholder: 'opção',

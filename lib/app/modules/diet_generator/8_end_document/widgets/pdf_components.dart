@@ -52,10 +52,10 @@ class PdfComponents {
                                   padding: const EdgeInsets.all(8),
                                   constraints:
                                       const BoxConstraints(maxWidth: 150),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(width: 1),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
+                                  // decoration: BoxDecoration(
+                                  //   border: Border.all(width: 1),
+                                  //   borderRadius: BorderRadius.circular(12),
+                                  // ),
                                   child: Row(
                                     children: [
                                       Text(

@@ -25,7 +25,7 @@ class AfterTrainingPage extends GetView<AfterTrainingController> {
               () => Visibility(
                 visible: controller.afterTraining.isNotEmpty,
                 replacement: const Center(
-                  child: Text('Montar a Colação'),
+                  child: Text('Montar o pós treino'),
                 ),
                 child: Obx(() => ListView.separated(
                       itemCount: controller.afterTraining.length,

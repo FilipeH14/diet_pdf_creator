@@ -17,7 +17,7 @@ class BrunchPage extends GetView<BrunchController> {
         children: [
           const Expanded(
             flex: 1,
-            child: StepDiet(currentStep: 2, amountStep: 7),
+            child: StepDiet(currentStep: 3, amountStep: 7),
           ),
           Expanded(
             flex: 8,
