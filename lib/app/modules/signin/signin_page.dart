@@ -12,16 +12,25 @@ class SigninPage extends GetView<SigninController> {
     return Scaffold(
       backgroundColor: DietUiColors.i.secondary,
       body: Center(
-        child: SizedBox(
-          height: 50,
-          child: SignInButton(
-            Buttons.Google,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(25),
+              child: Image.asset('assets/images/logo.png'),
             ),
-            text: 'Entrar com o google',
-            onPressed: () => controller.login(),
-          ),
+            SizedBox(
+              height: 50,
+              child: SignInButton(
+                Buttons.Google,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                text: 'Entrar com o google',
+                onPressed: () => controller.login(),
+              ),
+            ),
+          ],
         ),
       ),
     );

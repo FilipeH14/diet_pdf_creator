@@ -1,10 +1,13 @@
 import 'package:diet_pdf_creator/app/models/personal_data.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
+import 'package:diet_pdf_creator/app/shared/ui/diet_ui_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PersonalDataController extends GetxController {
   final formKey = GlobalKey<FormState>();
+
+  final DietUiUtils dietUtils = DietUiUtils();
 
   final nameEC = TextEditingController();
   final dateEc = TextEditingController();
@@ -23,7 +26,7 @@ class PersonalDataController extends GetxController {
 
     personalData = PersonalData(
       name: nameEC.text,
-      date: dateEc.text,
+      date: dietUtils.formatDateTime(DateTime.now()),
     );
 
     if (valid) Get.toNamed(RoutesApplication.breakfast);

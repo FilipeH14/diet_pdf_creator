@@ -25,16 +25,11 @@ class PersonalDataPage extends GetView<PersonalDataController> {
                 key: controller.formKey,
                 child: Column(
                   children: [
+                    const SizedBox(height: 10),
                     DietFormField(
                       placeholder: 'Nome',
                       controller: controller.nameEC,
                       validator: Validatorless.required('Digite o nome'),
-                    ),
-                    const SizedBox(height: 10),
-                    DietFormField(
-                      placeholder: 'Data',
-                      controller: controller.dateEc,
-                      validator: Validatorless.required('Digite a data atual'),
                     ),
                     const SizedBox(height: 20),
                     Center(
