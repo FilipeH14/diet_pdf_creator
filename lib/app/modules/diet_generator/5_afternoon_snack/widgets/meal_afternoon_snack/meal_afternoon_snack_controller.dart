@@ -43,10 +43,6 @@ class MealAfternoonSnackController extends GetxController {
           mealAfternoonSnackDiet,
     }.entries);
 
-    log('$mealAfternoonSnackMeal');
-
-    log('$mealAfternoonSnack');
-
     optionEC.clear();
     amountEC.clear();
     grammageEC.clear();

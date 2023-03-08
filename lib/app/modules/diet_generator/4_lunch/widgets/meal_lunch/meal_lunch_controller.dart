@@ -42,10 +42,6 @@ class MealLunchController extends GetxController {
       'meal${indexLunch.toString()}': lunchDiet,
     }.entries);
 
-    log('$lunchMeal');
-
-    log('$lunch');
-
     optionEC.clear();
     amountEC.clear();
     grammageEC.clear();

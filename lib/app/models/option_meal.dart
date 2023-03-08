@@ -2,8 +2,6 @@
 import 'dart:convert';
 
 import 'package:diet_pdf_creator/app/models/meal.dart';
-import 'package:flutter/foundation.dart';
-
 class OptionMeal {
   final String id;
   final Meal meal;
