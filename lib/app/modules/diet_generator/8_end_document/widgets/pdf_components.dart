@@ -1,10 +1,11 @@
+import 'dart:developer';
+
 import 'package:diet_pdf_creator/app/models/meal.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:get/get.dart';
 
 class PdfComponents {
-
   static String textValue = '';
 
   static Widget headerPdf({String? name, String? date}) => Container(
@@ -51,12 +52,19 @@ class PdfComponents {
               textValue = valuesMeal + textValue;
             }
 
+            var mealDiet = textValue;
+
+            textValue = '';
+
+            log(mealDiet);
+
             return Padding(
               padding: const EdgeInsets.all(8),
               child: Bullet(
-                text: textValue,
+                text: mealDiet,
               ),
             );
+
           }).toList(),
         ),
       );
