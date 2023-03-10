@@ -4,6 +4,9 @@ import 'package:pdf/widgets.dart';
 import 'package:get/get.dart';
 
 class PdfComponents {
+
+  static String textValue = '';
+
   static Widget headerPdf({String? name, String? date}) => Container(
         padding: const EdgeInsets.only(bottom: 3 * PdfPageFormat.mm),
         alignment: Alignment.bottomCenter,
@@ -34,52 +37,24 @@ class PdfComponents {
           children: meal!.asMap().entries.map((entry) {
             int index = entry.key;
 
+            var valuesMeal = '';
+
+            // for (int i = 0; i <= meal[index].length; i++) {
+            //   valuesMeal =
+            //       '${meal[index][i].option}, ${meal[index][i].amount}, ${meal[index][i].grammage} ou ';
+            // }
+
+            for (var element in meal[index]) {
+              valuesMeal =
+                  '${element.option}, ${element.amount}, ${element.grammage} ou ';
+
+              textValue = valuesMeal + textValue;
+            }
+
             return Padding(
               padding: const EdgeInsets.all(8),
-              child: SizedBox(
-                width: Get.width,
-                child: Row(
-                  children: [
-                    Text(
-                      '*',
-                      style: const TextStyle(fontSize: 40),
-                    ),
-                    Container(
-                      width: Get.width,
-                      child: Wrap(
-                        children: meal[index]
-                            .map((element) => Container(
-                                  padding: const EdgeInsets.all(8),
-                                  constraints:
-                                      const BoxConstraints(maxWidth: 150),
-                                  // decoration: BoxDecoration(
-                                  //   border: Border.all(width: 1),
-                                  //   borderRadius: BorderRadius.circular(12),
-                                  // ),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        '${element.option}, ',
-                                        style: const TextStyle(fontSize: 18),
-                                      ),
-                                      SizedBox(width: 2),
-                                      Text(
-                                        '${element.amount}, ',
-                                        style: const TextStyle(fontSize: 18),
-                                      ),
-                                      SizedBox(width: 2),
-                                      Text(
-                                        '${element.grammage}',
-                                        style: const TextStyle(fontSize: 18),
-                                      ),
-                                    ],
-                                  ),
-                                ))
-                            .toList(),
-                      ),
-                    ),
-                  ],
-                ),
+              child: Bullet(
+                text: textValue,
               ),
             );
           }).toList(),
