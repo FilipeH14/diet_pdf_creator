@@ -68,9 +68,6 @@ class EndDocumentController extends GetxController {
     final image =
         (await rootBundle.load('assets/images/logo.png')).buffer.asUint8List();
 
-    final mplus1 = Font.ttf(
-        await rootBundle.load('assets/fonts/mplus1/MPLUS1p-Regular.ttf'));
-
     pdf.addPage(MultiPage(
       pageFormat: PdfPageFormat.a4,
       build: (context) => [
@@ -123,6 +120,15 @@ class EndDocumentController extends GetxController {
         ),
         PdfComponents.listMealPdf(meal: dinner),
       ],
+      footer: (context) => Container(
+        alignment: Alignment.centerRight,
+        child: Text(
+          'Página ${context.pageNumber} de ${context.pagesCount}',
+          style: const TextStyle(
+            color: PdfColors.black,
+          ),
+        ),
+      ),
     ));
 
     final String dir = (await getApplicationDocumentsDirectory()).path;
@@ -132,6 +138,6 @@ class EndDocumentController extends GetxController {
     final File file = File(path);
     file.writeAsBytesSync(List.from(await pdf.save()));
 
-    Get.to(PdfScreen(pathPdf: path));
+    Get.to(() => PdfScreen(pathPdf: path));
   }
 }

@@ -27,6 +27,7 @@ class PdfScreen extends StatelessWidget {
         ],
       ),
       body: PDFView(
+        autoSpacing: false,
         filePath: pathPdf,
       ),
     );
