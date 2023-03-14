@@ -1,4 +1,5 @@
 import 'package:diet_pdf_creator/app/modules/diet_generator/4_lunch/lunch_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/animation_diet.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
@@ -19,15 +20,13 @@ class LunchPage extends GetView<LunchController> {
             flex: 1,
             child: StepDiet(currentStep: 4, amountStep: 7),
           ),
-          Expanded(
-            flex: 8,
-            child: Obx(
-              () => Visibility(
-                visible: controller.lunch.isNotEmpty,
-                replacement: const Center(
-                  child: Text('Montar o almoço'),
-                ),
-                child: Obx(() => ListView.separated(
+          Obx(
+            () => Visibility(
+              visible: controller.lunch.isNotEmpty,
+              replacement: const AnimationDiet(title: 'Montar o Almoço!!!'),
+              child: Obx(() => Expanded(
+                    flex: 8,
+                    child: ListView.separated(
                       itemCount: controller.lunch.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) => Padding(
@@ -51,8 +50,8 @@ class LunchPage extends GetView<LunchController> {
                       separatorBuilder: (context, index) => Divider(
                         color: Colors.grey[400],
                       ),
-                    )),
-              ),
+                    ),
+                  )),
             ),
           ),
           Expanded(

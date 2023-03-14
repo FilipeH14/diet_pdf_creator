@@ -1,4 +1,5 @@
 import 'package:diet_pdf_creator/app/modules/diet_generator/5_afternoon_snack/afternoon_snack_controller.dart';
+import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/animation_diet.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
@@ -19,15 +20,13 @@ class AfternoonSnackPage extends GetView<AfternoonSnackController> {
             flex: 1,
             child: StepDiet(currentStep: 5, amountStep: 7),
           ),
-          Expanded(
-            flex: 8,
-            child: Obx(
-              () => Visibility(
-                visible: controller.afternoonSnack.isNotEmpty,
-                replacement: const Center(
-                  child: Text('Montar o lanche da tarde'),
-                ),
-                child: Obx(() => ListView.separated(
+          Obx(
+            () => Visibility(
+              visible: controller.afternoonSnack.isNotEmpty,
+              replacement: const AnimationDiet(title: 'Montar o Lanche da tarde!!!'),
+              child: Obx(() => Expanded(
+                    flex: 8,
+                    child: ListView.separated(
                       itemCount: controller.afternoonSnack.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) => Padding(
@@ -51,8 +50,8 @@ class AfternoonSnackPage extends GetView<AfternoonSnackController> {
                       separatorBuilder: (context, index) => Divider(
                         color: Colors.grey[400],
                       ),
-                    )),
-              ),
+                    ),
+                  )),
             ),
           ),
           Expanded(

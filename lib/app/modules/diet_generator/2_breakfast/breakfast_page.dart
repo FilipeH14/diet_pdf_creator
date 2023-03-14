@@ -23,10 +23,10 @@ class BreakfastPage extends GetView<BreakfastController> {
           Obx(
             () => Visibility(
               visible: controller.breakfast.isNotEmpty,
-              replacement: const AnimationDiet(),
+              replacement: const AnimationDiet(title: 'Montar o Desjejum!!!'),
               child: Obx(() => Expanded(
-                flex: 8,
-                child: ListView.separated(
+                    flex: 8,
+                    child: ListView.separated(
                       itemCount: controller.breakfast.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) => Padding(
@@ -51,7 +51,7 @@ class BreakfastPage extends GetView<BreakfastController> {
                         color: Colors.grey[400],
                       ),
                     ),
-              )),
+                  )),
             ),
           ),
           Expanded(

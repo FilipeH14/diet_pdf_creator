@@ -1,3 +1,4 @@
+import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/animation_diet.dart';
 import 'package:diet_pdf_creator/app/modules/diet_generator/widgets/step_diet.dart';
 import 'package:diet_pdf_creator/app/routes/routes_application.dart';
 import 'package:diet_pdf_creator/app/shared/ui/widgets/diet_app_bar.dart';
@@ -19,15 +20,13 @@ class DinnerPage extends GetView<DinnerController> {
             flex: 1,
             child: StepDiet(currentStep: 7, amountStep: 7),
           ),
-          Expanded(
-            flex: 8,
-            child: Obx(
-              () => Visibility(
-                visible: controller.dinner.isNotEmpty,
-                replacement: const Center(
-                  child: Text('Montar o jantar'),
-                ),
-                child: Obx(() => ListView.separated(
+          Obx(
+            () => Visibility(
+              visible: controller.dinner.isNotEmpty,
+              replacement: const AnimationDiet(title: 'Montar o Jantar!!!'),
+              child: Obx(() => Expanded(
+                    flex: 8,
+                    child: ListView.separated(
                       itemCount: controller.dinner.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) => Padding(
@@ -51,8 +50,8 @@ class DinnerPage extends GetView<DinnerController> {
                       separatorBuilder: (context, index) => Divider(
                         color: Colors.grey[400],
                       ),
-                    )),
-              ),
+                    ),
+                  )),
             ),
           ),
           Expanded(
