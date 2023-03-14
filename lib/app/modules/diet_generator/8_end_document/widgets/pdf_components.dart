@@ -18,11 +18,6 @@ class PdfComponents {
           children: [
             SizedBox(width: 0.5 * PdfPageFormat.cm),
             Text(
-              'Logo da Dieta aqui',
-              style: const TextStyle(fontSize: 20, color: PdfColors.green),
-            ),
-            SizedBox(width: 0.5 * PdfPageFormat.cm),
-            Text(
               '${name ?? 'não encontrado'} - ${date ?? 'não encontrado'}',
               style: const TextStyle(fontSize: 20, color: PdfColors.black),
             ),
