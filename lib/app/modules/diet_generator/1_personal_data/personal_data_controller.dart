@@ -29,6 +29,9 @@ class PersonalDataController extends GetxController {
       date: dietUtils.formatDateTime(DateTime.now()),
     );
 
-    if (valid) Get.toNamed(RoutesApplication.breakfast);
+    if (valid) {
+      FocusManager.instance.primaryFocus?.unfocus();
+      Get.toNamed(RoutesApplication.breakfast);
+    }
   }
 }
