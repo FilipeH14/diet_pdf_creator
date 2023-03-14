@@ -40,14 +40,9 @@ class PdfComponents {
 
             var valuesMeal = '';
 
-            // for (int i = 0; i <= meal[index].length; i++) {
-            //   valuesMeal =
-            //       '${meal[index][i].option}, ${meal[index][i].amount}, ${meal[index][i].grammage} ou ';
-            // }
-
             for (var element in meal[index]) {
               valuesMeal =
-                  '${element.option}, ${element.amount}, ${element.grammage} ou ';
+                  '${element.option}, ${element.amount}, ${element.grammage} ${element == meal[index].first ? '' : 'ou'} ';
 
               textValue = valuesMeal + textValue;
             }
@@ -56,15 +51,12 @@ class PdfComponents {
 
             textValue = '';
 
-            log(mealDiet);
-
             return Padding(
               padding: const EdgeInsets.all(8),
               child: Bullet(
                 text: mealDiet,
               ),
             );
-
           }).toList(),
         ),
       );
